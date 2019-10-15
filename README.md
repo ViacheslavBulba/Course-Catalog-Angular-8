@@ -9,8 +9,7 @@ This project was generated with Angular CLI version 8.3.4.
 3. Open project folder in terminal
 4. Run `npm install -g @angular/cli`
 5. Run `npm install` inside the folder to install all dependencies
-6. Run `ng serve --open`
-7. Run `ng serve --open`, it will open the project in your browser automatically
+6. Run `ng serve --open`, it will open the project in your browser automatically
 
 ## Steps performed
 
