@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CourseListItem } from 'src/app/models/course-list-item.model';
 
 @Component({
   selector: 'app-course-list-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-list-item.component.css']
 })
 export class CourseListItemComponent implements OnInit {
+
+  @Input() public inputFieldNameFromCourseItemComponent: CourseListItem;
 
   constructor() { }
 

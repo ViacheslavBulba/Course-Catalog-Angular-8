@@ -1,1 +1,4 @@
-<p>course-list works!</p>
+<div>
+  <app-course-list-item *ngFor="let course of courseList" [inputFieldNameFromCourseItemComponent]="course">
+  </app-course-list-item>
+</div>
