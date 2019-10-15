@@ -6,12 +6,11 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseListItemComponent } from './course-list-item/course-list-item.component';
 import { LoadMoreComponent } from './load-more/load-more.component';
 
-
-
 @NgModule({
   declarations: [SearchComponent, AddCourseComponent, CourseListComponent, CourseListItemComponent, LoadMoreComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [SearchComponent, AddCourseComponent, CourseListComponent, LoadMoreComponent]
 })
 export class CourseListModule { }

@@ -4,12 +4,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
-
-
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, BreadcrumbsComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [HeaderComponent, FooterComponent, BreadcrumbsComponent]
 })
 export class LayoutModule { }
