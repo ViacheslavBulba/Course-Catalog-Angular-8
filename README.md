@@ -13,17 +13,17 @@ This project was generated with Angular CLI version 8.3.4.
 
 ## Steps performed
 
-1. `npm install -g @angular/cli`
+**1.** `npm install -g @angular/cli`
 
-2. `ng new angular-mentoring-program`
+**2.** `ng new angular-mentoring-program`
 
 `? Would you like to add Angular routing?` Yes
 
 `? Which stylesheet format would you like to use?` CSS
 
-3. **Updated tslint.json**
+**3. Updated tslint.json**
 
-4. **Added the following modules and components**
+**4. Added the following modules and components**
 
 `ng generate module layout`
 
@@ -45,8 +45,12 @@ This project was generated with Angular CLI version 8.3.4.
 
 `ng generate component course-list/load-more`
 
-5. **Added models for user and course list item**
+**5. Added models for user and course list item**
 
 `ng generate interface models/User`
 
 `ng generate interface models/CourseListItem`
+
+**6. Revealed components to app.component.html**
+
+**7. Added showing on the page video courses titles from component data**
