@@ -8,7 +8,7 @@ import { CourseListItem } from 'src/app/models/course-list-item.model';
 })
 export class CourseListItemComponent implements OnInit {
 
-  @Input() public inputFieldNameFromCourseItemComponent: CourseListItem;
+  @Input() public courseInput: CourseListItem;
 
   constructor() { }
 
