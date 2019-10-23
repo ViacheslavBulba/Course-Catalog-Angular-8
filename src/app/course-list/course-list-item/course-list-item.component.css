@@ -1,0 +1,121 @@
+.course-container {
+  width: 88vw;
+  padding-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: #ffffff;
+  min-height: 163px;
+  height: auto;
+}
+
+.title-duration-date-container {
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
+  margin-top: 0;
+  min-height: 30px;
+  height: auto;
+}
+
+.course-name {
+  font-family: 'Source Sans Pro';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #2c2f3c;
+  width: 70%;
+  /* min-height: 77px; */
+  height: auto;
+  word-break: break-word;
+}
+
+.duration, .date {
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  color: #b9bdce;
+  min-width: 75px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.duration i, .date i {
+  padding-right: 5px;
+}
+
+.duration {
+  padding-right: 12px;
+}
+
+.description-edit-delete-container {
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
+}
+
+.description {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  line-height: 1.71;
+  color: #525462;
+  width: 70%;
+  min-height: 77px;
+  height: auto;
+  word-break: break-word;
+  padding-bottom: 24px;
+}
+
+.edit-delete-button {
+  padding: 0;
+  width: 75px;
+  height: 24px;
+  border-radius: 3px;
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #30b6dd;
+}
+
+.edit-delete-button i {
+  padding-right: 6px;
+}
+
+.edit-delete-box, .duration-date-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.edit {
+  padding-right: 12px;
+}
+
+/* 768px - ipad width for example */
+
+@media screen and (max-width: 768px) {
+  .edit-delete-box, .duration-date-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* min-width: 75px; */
+    width: auto;
+    padding-right: 0;
+    padding-left: 10px;
+  }
+  .edit, .duration {
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+  .description, .course-name {
+    width: 100%;
+    text-align: left;
+  }
+  .description-edit-delete-container, .title-duration-date-container {
+    justify-content: flex-end;
+  }
+  .duration, .date {
+    text-align: left;
+  }
+}

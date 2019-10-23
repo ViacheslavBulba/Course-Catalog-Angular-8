@@ -1,0 +1,21 @@
+.load-more-container {
+  width: 88vw;
+  margin-bottom: 79px;
+  height: 48px;
+  border-radius: 8px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.load-more {
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.19px;
+  text-align: center;
+  color: #577ce6;
+  text-decoration: underline;
+}

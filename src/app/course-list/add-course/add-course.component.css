@@ -1,0 +1,40 @@
+.add-course-container {
+  width: 100%;
+  display: flex;
+  padding-top: 24px;
+  flex-direction: row-reverse;
+  padding-bottom: 12px;
+}
+
+.add-course-button-box {
+  padding-right: 6vw;
+}
+
+.add-course-button {
+  padding: 0;
+  width: 138px;
+  height: 36px;
+  border-radius: 3px;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #30b6dd;
+}
+
+.add-course-button i {
+  font-size: 18px;
+  padding-right: 15px;
+}
+
+/* 414px - iphone 6 plus width for example */
+
+@media screen and (max-width: 414px) {
+  .add-course-button {
+    width: 100%;
+  }
+  .add-course-button-box {
+    width: 100%;
+    padding-left: 6vw;
+  }
+}

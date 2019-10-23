@@ -1,0 +1,59 @@
+.header {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: #414452;
+}
+
+.header-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.app-name {
+  width: auto;
+  font-family: 'Oswald';
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  color: #ffffff;
+  padding-left: 6vw;
+}
+
+.user-info-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 6vw;
+}
+
+.user-info {
+  width: auto;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.logo-size-10-12 {
+  width: 10px;
+  height: 12px;
+  display: flex;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.logo-size-16-12 {
+  width: 16px;
+  height: 12px;
+  display: flex;
+}

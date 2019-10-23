@@ -1,0 +1,17 @@
+.footer {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: #414452;
+  color: #c0c3ce;
+  font-size: 14px;
+}
+
+.footer-text {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  padding-right: 6vw;
+  width: 100%;
+  text-align: right;
+}

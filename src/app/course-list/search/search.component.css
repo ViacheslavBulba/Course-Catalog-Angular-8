@@ -1,0 +1,68 @@
+.search-container {
+  padding-top: 24px;
+  padding-left: 6vw;
+  display: flex;
+}
+
+.search-input {
+  width: 25vw;
+  height: 45px;
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.22px;
+  padding-left: 44px;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  position: absolute;
+  padding: 12px;
+}
+
+.search-button {
+  width: 100px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #9bc837;
+  font-family: 'Source Sans Pro';
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.56;
+  letter-spacing: -0.13px;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+/* 414px - iphone 6 plus width for example */
+
+@media screen and (max-width: 414px) {
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 0;
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  .search-input-box {
+    display: flex;
+    width: 100%;
+    padding-bottom: 12px;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .search-button {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}

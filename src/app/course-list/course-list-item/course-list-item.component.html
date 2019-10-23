@@ -1,1 +1,20 @@
-<p>I am a video course {{ courseInput.title }}</p>
+<div class="course-container">
+  <div class="title-duration-date-container">
+    <div class="course-name">{{ courseInput.title }}</div>
+    <div class="duration-date-box">
+      <div class="duration"><i class="fa fa-clock-o"></i><span>1h 28 min</span></div>
+      <div class="date"><i class="fa fa-calendar"></i><span>29 Nov, 2028</span></div>
+    </div>
+  </div>
+  <div class="description-edit-delete-container">
+    <div class="description">{{ courseInput.description }}</div>
+    <div class="edit-delete-box">
+      <div class="edit">
+        <button class="edit-delete-button"><i class="fa fa-edit"></i>Edit</button>
+      </div>
+      <div class="delete">
+        <button class="edit-delete-button"><i class="fa fa-trash"></i>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

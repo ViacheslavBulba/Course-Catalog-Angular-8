@@ -1,0 +1,16 @@
+.breadcrumbs {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  background-color: #ffffff;
+}
+
+.breadcrumbs-text {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.71;
+  color: #2c2f3c;
+  margin-left: 6vw;
+}
