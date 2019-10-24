@@ -12,4 +12,8 @@ export class AddCourseComponent implements OnInit {
   ngOnInit() {
   }
 
+  addCourse() {
+    console.log('[Add Course] button was clicked');
+  }
+
 }

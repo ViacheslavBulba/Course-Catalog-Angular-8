@@ -2,8 +2,11 @@
   <div class="title-duration-date-container">
     <div class="course-name">{{ courseInput.title }}</div>
     <div class="duration-date-box">
-      <div class="duration"><i class="fa fa-clock-o"></i><span>1h 28 min</span></div>
-      <div class="date"><i class="fa fa-calendar"></i><span>29 Nov, 2028</span></div>
+      <div class="duration"><i
+          class="fa fa-clock-o"></i><span>{{ courseInput.durationInMinutes | minutesToHoursWithMinutes }}</span>
+      </div>
+      <div class="date"><i class="fa fa-calendar"></i><span>{{ courseInput.creationDate | date : 'd MMM, y' }}</span>
+      </div>
     </div>
   </div>
   <div class="description-edit-delete-container">

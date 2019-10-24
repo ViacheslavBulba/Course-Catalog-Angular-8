@@ -12,4 +12,8 @@ export class LoadMoreComponent implements OnInit {
   ngOnInit() {
   }
 
+  loadMore() {
+    console.log('[Load More] link was clicked');
+  }
+
 }
