@@ -13,10 +13,10 @@
     <div class="description">{{ courseInput.description }}</div>
     <div class="edit-delete-box">
       <div class="edit">
-        <button class="edit-delete-button"><i class="fa fa-edit"></i>Edit</button>
+        <button class="edit-delete-button" (click)="onEdit()"><i class="fa fa-edit"></i>Edit</button>
       </div>
       <div class="delete">
-        <button class="edit-delete-button"><i class="fa fa-trash"></i>Delete</button>
+        <button class="edit-delete-button" (click)="onDelete()"><i class="fa fa-trash"></i>Delete</button>
       </div>
     </div>
   </div>

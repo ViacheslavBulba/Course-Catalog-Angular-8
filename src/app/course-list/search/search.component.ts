@@ -14,8 +14,12 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  search() {
-    console.log('[Search] button was clicked: ' + this.searchString);
+  onSearch() {
+    if (this.searchString === '') {
+      console.log('Search input is empty');
+      return;
+    }
+    console.log('Search button was clicked: ' + this.searchString);
   }
 
 }

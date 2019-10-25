@@ -15,4 +15,12 @@ export class CourseListItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onEdit() {
+    console.log('Edit course id ' + this.courseInput.id);
+  }
+
+  onDelete() {
+    console.log('Delete course id ' + this.courseInput.id);
+  }
+
 }

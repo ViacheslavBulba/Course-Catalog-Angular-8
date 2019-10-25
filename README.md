@@ -1,4 +1,15 @@
-# Video Courses App
+# Home Task 2
+
+## Steps performed
+
+**1. Added responsive design for video courses page**
+
+**2. Added transform pipes for duration and date values**
+
+**3. Added console out for clicks on target elements**
+
+
+# Home Task 1
 
 This project was generated with Angular CLI version 8.3.4.
 

@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    console.log('[Logout] was clicked');
+  onLogout() {
+    console.log('Logout was clicked');
   }
 
 }
