@@ -11,3 +11,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.container {
+  min-height: calc(100vh - 3*64px);
+  /*64px is the height of each: header, breadcrumbs and footer*/
+}
