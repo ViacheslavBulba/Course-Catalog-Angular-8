@@ -58,6 +58,8 @@ Add imports in app.module.ts
 
 **6. For Delete button - used @Output to call method on parent component. Console logged course id in video courses page component**
 
+**7. Assigned fake values on ngOnInit hook**
+
 # Home Task 1
 
 This project was generated with Angular CLI version 8.3.4.
