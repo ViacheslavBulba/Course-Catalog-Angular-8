@@ -4,10 +4,43 @@
 
 **1. Added responsive design for video courses page**
 
-**2. Added transform pipes for duration and date values**
+There is a minor issue with search component responsiveness on small screen, will fix later
 
-**3. Added console out for clicks on target elements**
+**2. Added sticky footer**
 
+Simple sticky footer solution through min-height: calc(100vh - 3*64px); 
+
+**3. Added transform pipes for duration and date values**
+
+**4. Added console out for clicks on target elements**
+
+**5. Added simple routing base**
+
+Create new file app.routes.ts
+
+`import { Route } from '@angular/router';`
+`import { CourseListComponent } from './course-list/course-list/course-list.component';`
+
+`export const ROUTES: Route[] = [`
+`  { path: '', redirectTo: 'courses', pathMatch: 'full' },`
+`  { path: 'courses', component: CourseListComponent }`
+`];`
+
+Add imports in app.module.ts
+
+`import { RouterModule } from '@angular/router';`
+`import { ROUTES } from './app.routes';`
+
+`@NgModule({`
+`  declarations: [`
+`    AppComponent`
+`  ],`
+`  imports: [`
+`    RouterModule.forRoot(ROUTES)`
+`  ],`
+`  providers: [],`
+`  bootstrap: [AppComponent]`
+`})`
 
 # Home Task 1
 
