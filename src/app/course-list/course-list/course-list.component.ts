@@ -51,4 +51,8 @@ export class CourseListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDelete(item: CourseListItem) {
+    console.log('Output from the child to the parent --> delete course id ' + item.id);
+  }
+
 }

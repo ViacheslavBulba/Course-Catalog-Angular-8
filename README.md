@@ -14,7 +14,7 @@ Simple sticky footer solution through min-height: calc(100vh - 3*64px);
 
 **4. Added console out for clicks on target elements**
 
-**5. Added simple routing base**
+**5. Added simple routing base - I will add <router-outlet></router-outlet> later when we have other page, otherwise it is not clear where to place it**
 
 Create new file app.routes.ts
 
@@ -55,6 +55,8 @@ Add imports in app.module.ts
 `  bootstrap: [AppComponent]`
 
 `})`
+
+**6. For Delete button - used @Output to call method on parent component. Console logged course id in video courses page component**
 
 # Home Task 1
 

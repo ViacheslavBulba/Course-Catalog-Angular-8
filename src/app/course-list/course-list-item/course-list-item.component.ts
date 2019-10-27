@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CourseListItem } from 'src/app/models/course-list-item.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { CourseListItem } from 'src/app/models/course-list-item.model';
 export class CourseListItemComponent implements OnInit {
 
   @Input() public courseInput: CourseListItem;
+  @Output() public deleteCourse: EventEmitter<CourseListItem> = new EventEmitter();
 
   constructor() { }
 
@@ -20,7 +21,7 @@ export class CourseListItemComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('Delete course id ' + this.courseInput.id);
+    this.deleteCourse.emit(this.courseInput);
   }
 
 }
