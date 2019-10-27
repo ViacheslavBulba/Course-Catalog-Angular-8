@@ -19,27 +19,41 @@ Simple sticky footer solution through min-height: calc(100vh - 3*64px);
 Create new file app.routes.ts
 
 `import { Route } from '@angular/router';`
+
 `import { CourseListComponent } from './course-list/course-list/course-list.component';`
 
 `export const ROUTES: Route[] = [`
+
 `  { path: '', redirectTo: 'courses', pathMatch: 'full' },`
+
 `  { path: 'courses', component: CourseListComponent }`
+
 `];`
 
 Add imports in app.module.ts
 
 `import { RouterModule } from '@angular/router';`
+
 `import { ROUTES } from './app.routes';`
 
 `@NgModule({`
+
 `  declarations: [`
+
 `    AppComponent`
+
 `  ],`
+
 `  imports: [`
+
 `    RouterModule.forRoot(ROUTES)`
+
 `  ],`
+
 `  providers: [],`
+
 `  bootstrap: [AppComponent]`
+
 `})`
 
 # Home Task 1
