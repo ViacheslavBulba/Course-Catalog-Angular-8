@@ -9,7 +9,7 @@ import { CourseListItem } from 'src/app/models/course-list-item.model';
 export class CourseListItemComponent implements OnInit {
 
   @Input() public courseInput: CourseListItem;
-  @Output() public courseOutput: EventEmitter<CourseListItem> = new EventEmitter();
+  @Output() public deleteCourse: EventEmitter<CourseListItem> = new EventEmitter();
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class CourseListItemComponent implements OnInit {
   }
 
   onDelete() {
-    this.courseOutput.emit(this.courseInput);
+    this.deleteCourse.emit(this.courseInput);
   }
 
 }

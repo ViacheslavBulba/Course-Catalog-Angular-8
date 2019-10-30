@@ -32,16 +32,6 @@
   padding-right: 6vw;
 }
 
-.user-info {
-  width: auto;
-  font-family: 'Source Sans Pro';
-  font-size: 14px;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-}
-
 .logo-size-10-12 {
   width: 10px;
   height: 12px;
@@ -56,4 +46,28 @@
   width: 16px;
   height: 12px;
   display: flex;
+}
+
+.user-info, .logout {
+  width: auto;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  padding-right: 20px;
+}
+
+.logout {
+  height: 64px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.logout:hover {
+  text-decoration: underline;
+  background-color: #515258;
 }

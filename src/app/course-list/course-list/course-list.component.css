@@ -1,0 +1,13 @@
+.course-list-box {
+  width: 100vw;
+  min-height: calc(100vh - 3*64px);
+  background-color: #f2f3f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.courses-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
