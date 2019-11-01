@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SearchComponent } from '../search/search.component';
+import { AddCourseComponent } from '../add-course/add-course.component';
 import { CourseListComponent } from './course-list.component';
+import { FormsModule } from '@angular/forms';
+import { CourseListItemComponent } from '../course-list-item/course-list-item.component';
+import { LoadMoreComponent } from '../load-more/load-more.component';
+import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -8,9 +13,10 @@ describe('CourseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseListComponent ]
+      imports: [FormsModule],
+      declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
