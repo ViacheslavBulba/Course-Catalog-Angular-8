@@ -8,9 +8,9 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [FooterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,10 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render footer text © 2019 EPAM Systems, Inc. All Rights Reserved.', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.footer-text').textContent).toBe('© 2019 EPAM Systems, Inc. All Rights Reserved.');
+  });
+
 });

@@ -28,4 +28,8 @@ describe('CourseListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('course list should not be empty', () => {
+    expect(component.courseList[0]).not.toBeUndefined();
+  });
 });

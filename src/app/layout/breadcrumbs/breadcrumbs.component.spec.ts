@@ -8,9 +8,9 @@ describe('BreadcrumbsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BreadcrumbsComponent ]
+      declarations: [BreadcrumbsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,10 @@ describe('BreadcrumbsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('breadcrumbs text should Courses', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.breadcrumbs-text').textContent).toBe('Courses');
+  });
+
 });

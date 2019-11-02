@@ -24,4 +24,15 @@ describe('SearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('search button text should be Search', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.search-button').textContent).toBe('Search');
+  });
+
+  it('search input placeholder text should be Text to search', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input').placeholder).toBe('Text to search');
+  });
+
 });

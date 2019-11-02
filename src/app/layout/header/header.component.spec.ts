@@ -8,9 +8,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,15 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('user login info text should be User login', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.user-info .padding-left-10').textContent).toBe('User login');
+  });
+
+  it('logout link text should be Log off', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.logout .padding-left-10').textContent).toBe('Log off');
+  });
+
 });

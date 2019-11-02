@@ -8,9 +8,9 @@ describe('AddCourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddCourseComponent ]
+      declarations: [AddCourseComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,10 @@ describe('AddCourseComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('add course button text should be Add course', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.add-course-button').textContent).toBe('Add course');
+  });
+
 });

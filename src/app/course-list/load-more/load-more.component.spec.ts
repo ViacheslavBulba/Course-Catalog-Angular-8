@@ -8,9 +8,9 @@ describe('LoadMoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoadMoreComponent ]
+      declarations: [LoadMoreComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +22,10 @@ describe('LoadMoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('load more link text should be LOAD MORE', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.load-more').textContent).toBe('LOAD MORE');
+  });
+
 });

@@ -20,12 +20,10 @@ export class CourseListComponent implements OnInit, OnChanges {
   public courseList: CourseListItem[];
 
   constructor() {
-    console.log('Message from constructor()');
     this.simpleAuthorSet.add(this.simpleAuthor);
   }
 
   ngOnInit() {
-    console.log('Message from ngOnInit()');
     this.courseList = [
       {
         id: 1,
@@ -55,7 +53,6 @@ export class CourseListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log('Message from ngOnChanges()');
   }
 
   onDelete(item: CourseListItem) {
