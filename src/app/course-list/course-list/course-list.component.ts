@@ -46,7 +46,7 @@ export class CourseListComponent implements OnInit, OnChanges {
         title: 'Video course #3',
         description: 'Course description #3',
         creationDate: new Date('October 13 2019'),
-        durationInMinutes: 125,
+        durationInMinutes: 59,
         authors: this.simpleAuthorSet
       }
     ];

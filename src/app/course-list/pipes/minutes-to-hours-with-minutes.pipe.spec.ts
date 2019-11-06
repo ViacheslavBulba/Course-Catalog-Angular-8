@@ -10,4 +10,9 @@ describe('MinutesToHoursWithMinutesPipe', () => {
     const pipe = new MinutesToHoursWithMinutesPipe();
     expect(pipe.transform(90)).toBe('1 h 30 min');
   });
+
+  it('transforms 58 to 58 min', () => {
+    const pipe = new MinutesToHoursWithMinutesPipe();
+    expect(pipe.transform(58)).toBe('58 min');
+  });
 });
