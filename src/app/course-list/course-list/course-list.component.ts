@@ -32,7 +32,7 @@ export class CourseListComponent implements OnInit, OnChanges {
         creationDate: new Date('December 11 2019'),
         durationInMinutes: 90,
         authors: this.simpleAuthorSet,
-        topRated: true
+        topRated: false
       },
       {
         id: 2,
@@ -45,12 +45,12 @@ export class CourseListComponent implements OnInit, OnChanges {
       },
       {
         id: 3,
-        title: 'Video course #3',
+        title: 'Top Rated Video course #3',
         description: 'Course description #3',
         creationDate: new Date('October 13 2019'),
         durationInMinutes: 59,
         authors: this.simpleAuthorSet,
-        topRated: false
+        topRated: true
       }
     ];
   }

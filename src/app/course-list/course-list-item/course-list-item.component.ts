@@ -31,7 +31,8 @@ export class CourseListItemComponent implements OnInit {
     const classes = {
       'course-container': true,
       'is-fresh': (this.courseInput.creationDate <= today) && (this.courseInput.creationDate >= freshLimitDate),
-      'is-upcoming': this.courseInput.creationDate > today
+      'is-upcoming': this.courseInput.creationDate > today,
+      'is-top-rated': this.courseInput.topRated
     };
     return classes;
   }

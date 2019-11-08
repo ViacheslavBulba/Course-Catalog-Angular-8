@@ -99,6 +99,10 @@
   box-shadow: 0 1px 24px 0 rgb(60, 116, 199);
 }
 
+.is-top-rated {
+  background-color: #fafcaa;
+}
+
 /* 768px - ipad width for example */
 
 @media screen and (max-width: 768px) {
