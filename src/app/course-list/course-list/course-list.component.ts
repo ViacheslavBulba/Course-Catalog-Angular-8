@@ -31,7 +31,8 @@ export class CourseListComponent implements OnInit, OnChanges {
         description: 'Course description #1',
         creationDate: new Date('October 11 2019'),
         durationInMinutes: 90,
-        authors: this.simpleAuthorSet
+        authors: this.simpleAuthorSet,
+        topRated: true
       },
       {
         id: 2,
@@ -39,7 +40,8 @@ export class CourseListComponent implements OnInit, OnChanges {
         description: 'Course description #2',
         creationDate: new Date('October 12 2019'),
         durationInMinutes: 60,
-        authors: this.simpleAuthorSet
+        authors: this.simpleAuthorSet,
+        topRated: false
       },
       {
         id: 3,
@@ -47,7 +49,8 @@ export class CourseListComponent implements OnInit, OnChanges {
         description: 'Course description #3',
         creationDate: new Date('October 13 2019'),
         durationInMinutes: 59,
-        authors: this.simpleAuthorSet
+        authors: this.simpleAuthorSet,
+        topRated: false
       }
     ];
   }

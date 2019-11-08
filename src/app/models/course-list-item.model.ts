@@ -7,4 +7,5 @@ export interface CourseListItem {
   creationDate: Date;
   durationInMinutes: number;
   authors: Set<User>;
+  topRated: boolean;
 }

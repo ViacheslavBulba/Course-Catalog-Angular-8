@@ -1,6 +1,7 @@
 <div class="course-container">
   <div class="title-duration-date-container">
-    <div class="course-name">{{ courseInput.title }}</div>
+    <div class="course-name">{{ courseInput.title | uppercase }} <i class="fa fa-star" *ngIf="courseInput.topRated"></i>
+    </div>
     <div class="duration-date-box">
       <div class="duration">
         <i class="fa fa-clock-o"></i><span>{{ courseInput.durationInMinutes | minutesToHoursWithMinutes }}</span>

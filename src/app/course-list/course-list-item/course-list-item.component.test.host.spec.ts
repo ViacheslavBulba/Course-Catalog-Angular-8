@@ -23,7 +23,8 @@ class TestHostComponent {
       id: 33,
       firstName: 'Slava',
       lastName: 'Bulba'
-    }])
+    }]),
+    topRated: false
   };
   courseToDelete: CourseListItem;
   onDelete(courseInput: CourseListItem) { this.courseToDelete = courseInput; }
