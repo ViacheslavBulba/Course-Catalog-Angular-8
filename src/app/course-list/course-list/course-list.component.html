@@ -3,7 +3,8 @@
   <app-add-course></app-add-course>
   <div class="courses-container">
     <div>
-      <app-course-list-item *ngFor="let course of courseList" [courseInput]="course" (deleteCourse)="onDelete($event)">
+      <app-course-list-item *ngFor="let course of courseList | orderBy: '-creationDate'" [courseInput]="course"
+        (deleteCourse)="onDelete($event)">
       </app-course-list-item>
     </div>
     <span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>

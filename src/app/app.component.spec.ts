@@ -11,6 +11,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CourseListItemComponent } from './course-list/course-list-item/course-list-item.component';
 import { MinutesToHoursWithMinutesPipe } from './course-list/pipes/minutes-to-hours-with-minutes.pipe';
+import { OrderByPipe } from './course-list/pipes/order-by.pipe';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -31,7 +32,8 @@ describe('AppComponent', () => {
         CourseListItemComponent,
         LoadMoreComponent,
         FooterComponent,
-        MinutesToHoursWithMinutesPipe
+        MinutesToHoursWithMinutesPipe,
+        OrderByPipe
       ],
     }).compileComponents();
   }));

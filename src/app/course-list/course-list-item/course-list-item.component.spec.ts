@@ -46,7 +46,7 @@ describe('CourseListItemComponent', () => {
 
   it('should render course name ' + courseInput.title, () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.course-name').textContent).toBe(courseInput.title);
+    expect(compiled.querySelector('.course-name').textContent.trim().toLowerCase()).toBe(courseInput.title.toLowerCase());
   });
 
   it('should render course description ' + courseInput.description, () => {

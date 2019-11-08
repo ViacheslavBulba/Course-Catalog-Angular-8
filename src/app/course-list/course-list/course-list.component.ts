@@ -26,20 +26,20 @@ export class CourseListComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.courseList = [
       {
-        id: 1,
-        title: 'Upcoming course #1',
-        description: 'Course description #1',
-        creationDate: new Date('December 11 2019'),
-        durationInMinutes: 90,
-        authors: this.simpleAuthorSet,
-        topRated: false
-      },
-      {
         id: 2,
         title: 'Fresh course #2',
         description: 'Course description #2',
         creationDate: new Date('November 1 2019'),
         durationInMinutes: 60,
+        authors: this.simpleAuthorSet,
+        topRated: false
+      },
+      {
+        id: 1,
+        title: 'Upcoming course #1',
+        description: 'Course description #1',
+        creationDate: new Date('December 11 2019'),
+        durationInMinutes: 90,
         authors: this.simpleAuthorSet,
         topRated: false
       },

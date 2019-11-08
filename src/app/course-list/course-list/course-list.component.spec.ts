@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CourseListItemComponent } from '../course-list-item/course-list-item.component';
 import { LoadMoreComponent } from '../load-more/load-more.component';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
+import { OrderByPipe } from '../pipes/order-by.pipe';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -14,7 +15,7 @@ describe('CourseListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe]
+      declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe]
     })
       .compileComponents();
   }));

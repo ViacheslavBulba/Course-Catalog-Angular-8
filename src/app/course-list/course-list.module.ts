@@ -7,9 +7,10 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseListItemComponent } from './course-list-item/course-list-item.component';
 import { LoadMoreComponent } from './load-more/load-more.component';
 import { MinutesToHoursWithMinutesPipe } from './pipes/minutes-to-hours-with-minutes.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
-  declarations: [SearchComponent, AddCourseComponent, CourseListComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe],
+  declarations: [SearchComponent, AddCourseComponent, CourseListComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe],
   imports: [
     CommonModule,
     FormsModule
