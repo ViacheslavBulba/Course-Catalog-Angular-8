@@ -25,7 +25,6 @@
   line-height: 1.25;
   color: #2c2f3c;
   width: 70%;
-  /* min-height: 77px; */
   height: auto;
   word-break: break-word;
 }
@@ -92,6 +91,14 @@
   padding-right: 12px;
 }
 
+.is-fresh {
+  box-shadow: 0 1px 24px 0 rgb(76, 199, 60);
+}
+
+.is-upcoming {
+  box-shadow: 0 1px 24px 0 rgb(60, 116, 199);
+}
+
 /* 768px - ipad width for example */
 
 @media screen and (max-width: 768px) {
@@ -99,7 +106,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* min-width: 75px; */
     width: auto;
     padding-right: 0;
     padding-left: 10px;

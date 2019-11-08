@@ -24,4 +24,16 @@ export class CourseListItemComponent implements OnInit {
     this.deleteCourse.emit(this.courseInput);
   }
 
+  setClasses() {
+    const today = new Date();
+    const freshLimitDate = new Date();
+    freshLimitDate.setDate(today.getDate() - 14);
+    const classes = {
+      'course-container': true,
+      'is-fresh': (this.courseInput.creationDate <= today) && (this.courseInput.creationDate >= freshLimitDate),
+      'is-upcoming': this.courseInput.creationDate > today
+    };
+    return classes;
+  }
+
 }

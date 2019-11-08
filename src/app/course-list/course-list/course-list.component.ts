@@ -27,18 +27,18 @@ export class CourseListComponent implements OnInit, OnChanges {
     this.courseList = [
       {
         id: 1,
-        title: 'Video course #1',
+        title: 'Upcoming course #1',
         description: 'Course description #1',
-        creationDate: new Date('October 11 2019'),
+        creationDate: new Date('December 11 2019'),
         durationInMinutes: 90,
         authors: this.simpleAuthorSet,
         topRated: true
       },
       {
         id: 2,
-        title: 'Video course #2',
+        title: 'Fresh course #2',
         description: 'Course description #2',
-        creationDate: new Date('October 12 2019'),
+        creationDate: new Date('November 1 2019'),
         durationInMinutes: 60,
         authors: this.simpleAuthorSet,
         topRated: false

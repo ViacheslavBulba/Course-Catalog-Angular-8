@@ -1,4 +1,4 @@
-<div class="course-container">
+<div [ngClass]="setClasses()">
   <div class="title-duration-date-container">
     <div class="course-name">{{ courseInput.title | uppercase }} <i class="fa fa-star" *ngIf="courseInput.topRated"></i>
     </div>
