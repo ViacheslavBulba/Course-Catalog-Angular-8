@@ -1,3 +1,19 @@
+# Home Task 4 (Directives and Pipes)
+
+**1. Added custom pipe to change course plate border based on creationDate. If creationDate < today && creationDate >= today - 14 days - fresh course - green border. If creationDate > today - upcoming course - blue border.**
+
+**2. Added no data message <span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>**
+
+**3. Added topRated field to the course item. If true - show star icon, change background color to light yellow.**
+
+**4. Added built-in pipe to uppercase a video course name.**
+
+**5. Updated duration pipe.**
+
+**6. Added order by date pipe.**
+
+**7. Added filtering by course name based on output from search component.**
+
 # Home Task 3
 
 ## Fix all generated specs to pass ng test
