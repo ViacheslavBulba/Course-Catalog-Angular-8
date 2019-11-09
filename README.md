@@ -2,7 +2,7 @@
 
 **1. Added custom pipe to change course plate border based on creationDate. If creationDate < today && creationDate >= today - 14 days - fresh course - green border. If creationDate > today - upcoming course - blue border.**
 
-**2. Added no data message <span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>**
+**2. Added no data message `<span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>`**
 
 **3. Added topRated field to the course item. If true - show star icon, change background color to light yellow.**
 
