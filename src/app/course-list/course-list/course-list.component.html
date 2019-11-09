@@ -1,5 +1,5 @@
 <div class="course-list-box">
-  <app-search></app-search>
+  <app-search (searchRequest)="onSearch($event)"></app-search>
   <app-add-course></app-add-course>
   <div class="courses-container">
     <div>
