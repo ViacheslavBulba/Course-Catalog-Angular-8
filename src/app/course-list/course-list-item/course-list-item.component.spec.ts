@@ -22,7 +22,7 @@ describe('CourseListItemComponent', () => {
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
     authors: simpleAuthorSet,
-    topRated: false
+    topRated: true
   };
 
   beforeEach(async(() => {

@@ -7,6 +7,7 @@ import { CourseListItemComponent } from '../course-list-item/course-list-item.co
 import { LoadMoreComponent } from '../load-more/load-more.component';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
+import { By } from '@angular/platform-browser';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -33,4 +34,15 @@ describe('CourseListComponent', () => {
   it('course list should not be empty', () => {
     expect(component.courseList[0]).not.toBeUndefined();
   });
+
+  it('should show no data message if course list is empty', () => {
+    const courseListToRestore = component.courseList;
+    component.courseList = [];
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('.no-data'))).not.toBeNull();
+    component.courseList = courseListToRestore;
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('.no-data'))).toBeNull();
+  });
+
 });

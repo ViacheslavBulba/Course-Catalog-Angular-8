@@ -24,7 +24,7 @@ class TestHostComponent {
       firstName: 'Slava',
       lastName: 'Bulba'
     }]),
-    topRated: false
+    topRated: true
   };
   courseToDelete: CourseListItem;
   onDelete(courseInput: CourseListItem) { this.courseToDelete = courseInput; }
@@ -51,6 +51,19 @@ describe('CourseListItemComponent', () => {
     const deleteDe = fixture.debugElement.query(By.css('.delete button'));
     deleteDe.triggerEventHandler('click', null);
     expect(component.courseToDelete).toBe(component.courseInput);
+  });
+
+  it('should remove star if topRated becomes false', () => {
+    // set up pre-conditions
+    component.courseInput.topRated = true;
+    fixture.detectChanges();
+    // should be rendered initially
+    expect(fixture.debugElement.query(By.css('.fa.fa-star'))).not.toBeNull();
+    // trigger change
+    component.courseInput.topRated = false;
+    fixture.detectChanges();
+    // should not be rendered
+    expect(fixture.debugElement.query(By.css('.fa.fa-star'))).toBeNull();
   });
 
 });
