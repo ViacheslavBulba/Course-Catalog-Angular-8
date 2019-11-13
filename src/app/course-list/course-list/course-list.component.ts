@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { User } from '../../models/user.model';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { CoursesService } from '../services/courses.service';
+
 
 @Component({
   selector: 'app-course-list',
@@ -11,50 +12,15 @@ import { FilterPipe } from '../pipes/filter.pipe';
 })
 export class CourseListComponent implements OnInit, OnChanges {
 
-  private simpleAuthor: User = {
-    id: 1,
-    firstName: 'Slava',
-    lastName: 'Bulba'
-  };
-
-  private simpleAuthorSet = new Set<User>();
-
   public courseList: CourseListItem[];
 
-  constructor(private filter: FilterPipe) {
-    this.simpleAuthorSet.add(this.simpleAuthor);
+  constructor(private coursesService: CoursesService, private filter: FilterPipe) {
   }
 
   ngOnInit() {
-    this.courseList = [
-      {
-        id: 2,
-        title: 'Fresh course #2',
-        description: 'Course description #2',
-        creationDate: new Date('November 1 2019'),
-        durationInMinutes: 60,
-        authors: this.simpleAuthorSet,
-        topRated: false
-      },
-      {
-        id: 1,
-        title: 'Upcoming course #1',
-        description: 'Course description #1',
-        creationDate: new Date('December 11 2019'),
-        durationInMinutes: 90,
-        authors: this.simpleAuthorSet,
-        topRated: false
-      },
-      {
-        id: 3,
-        title: 'Top Rated Video course #3',
-        description: 'Course description #3',
-        creationDate: new Date('October 13 2019'),
-        durationInMinutes: 59,
-        authors: this.simpleAuthorSet,
-        topRated: true
-      }
-    ];
+    this.coursesService.getList().subscribe(courses => {
+      this.courseList = courses;
+    });
   }
 
   ngOnChanges() {

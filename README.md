@@ -1,3 +1,9 @@
+# Home Task 5 (Modules and Services)
+
+**1. Added courses service**
+
+`ng generate service course-list/services/courses`
+
 # Home Task 4 (Directives and Pipes)
 
 **1. Added custom pipe to change course plate border based on creationDate. If creationDate < today && creationDate >= today - 14 days - fresh course - green border. If creationDate > today - upcoming course - blue border.**
@@ -13,6 +19,10 @@
 **6. Added order by date pipe.**
 
 **7. Added filtering by course name based on output from search component.**
+
+**8. Added custom directive**
+
+`ng generate directive course-list/directives/CoursePlateBoxShadowColor`
 
 # Home Task 3
 
