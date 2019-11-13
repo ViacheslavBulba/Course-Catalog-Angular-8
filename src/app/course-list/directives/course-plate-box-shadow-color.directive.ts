@@ -1,9 +1,9 @@
-import { Directive, Input, ElementRef, OnInit } from '@angular/core';
+import { Directive, Input, ElementRef, OnInit, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[appCoursePlateBoxShadowColor]'
 })
-export class CoursePlateBoxShadowColorDirective implements OnInit {
+export class CoursePlateBoxShadowColorDirective implements OnInit, OnChanges {
 
   @Input() date: Date;
 
@@ -11,6 +11,9 @@ export class CoursePlateBoxShadowColorDirective implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
     this.setBoxShadow();
   }
 
@@ -23,6 +26,9 @@ export class CoursePlateBoxShadowColorDirective implements OnInit {
     }
     if (this.date > today) {
       this.el.nativeElement.style.boxShadow = '0 1px 24px 0 rgb(60, 116, 199)';
+    }
+    if (this.date < freshLimitDate) {
+      this.el.nativeElement.style.boxShadow = '0 1px 24px 0 rgb(18, 21, 35)';
     }
   }
 

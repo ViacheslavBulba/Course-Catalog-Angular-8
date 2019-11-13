@@ -3,7 +3,7 @@
   padding-top: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
-  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  box-shadow: 0 1px 24px 0 rgb(18, 21, 35);
   background-color: #ffffff;
   min-height: 163px;
   height: auto;
@@ -92,7 +92,7 @@
 }
 
 .is-top-rated {
-  background-color: #fafcaa;
+  background-color: rgb(250, 252, 170);
 }
 
 /* 768px - ipad width for example */

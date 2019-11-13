@@ -67,4 +67,14 @@ describe('CourseListItemComponent via test host', () => {
     expect(fixture.debugElement.query(By.css('.fa.fa-star'))).toBeNull();
   });
 
+  it('should change course box color to yellow for top rated courses', () => {
+    const courseTopRatedValueToRestore = component.courseInput.topRated;
+    component.courseInput.topRated = true;
+    fixture.detectChanges();
+    const container = fixture.debugElement.query(By.css('.course-container'));
+    const backgroundColor = window.getComputedStyle(container.nativeElement).backgroundColor;
+    expect(backgroundColor).toBe('rgb(250, 252, 170)');
+    component.courseInput.topRated = courseTopRatedValueToRestore;
+  });
+
 });

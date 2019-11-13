@@ -50,21 +50,51 @@ describe('CoursePlateBoxShadowColorDirective', () => {
     fixture.detectChanges();
   });
 
-  it('should change course box shadow color to blue if creationDate > today (is not working)', () => {
+  it('should change course box shadow color to blue if creationDate > today', () => {
     const courseDateToRestore = component.courseInput.creationDate;
     const today = new Date();
     const newDate = new Date();
-    newDate.setDate(today.getDate() - 30);
+    newDate.setDate(today.getDate() + 1);
     component.courseInput.creationDate = newDate;
-    // component.courseInput.creationDate.setDate(today.getDate() + 1);
     fixture.detectChanges();
     const container = fixture.debugElement.query(By.css('.course-container'));
     const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
-    expect(boxShadow).toBe('rgba(18, 21, 35, 0.08) 0px 1px 24px 0px'); // should be rgba(60, 116, 199, 1)
-    // expect(fixture.nativeElement.querySelector('.course-container').style.boxShadow).toBe('0 1px 24px 0 rgb(60, 116, 199)');
-    // expect(fixture.debugElement.query(By.css('.course-container')).styles['box-shadow']).toBe('0 1px 24px 0 rgb(60, 116, 199)');
-    // expect(fixture.nativeElement.querySelector('.course-container').styles['box-shadow']).toBe('0 1px 24px 0 rgb(60, 116, 199)');
-    // expect(fixture.debugElement.query(By.css('.course-container')).nativeElement.styles['box-shadow']).toBe('0 1px 24px 0 rgb(60, 116, 199)');
+    expect(boxShadow).toBe('rgb(60, 116, 199) 0px 1px 24px 0px');
+    component.courseInput.creationDate = courseDateToRestore;
+  });
+
+  it('should change course box shadow color to green if creationDate <= 14 days', () => {
+    const courseDateToRestore = component.courseInput.creationDate;
+    const today = new Date();
+    const newDate = new Date();
+
+    newDate.setDate(today.getDate() - 1);
+    component.courseInput.creationDate = newDate;
+    fixture.detectChanges();
+    let container = fixture.debugElement.query(By.css('.course-container'));
+    let boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
+    expect(boxShadow).toBe('rgb(76, 199, 60) 0px 1px 24px 0px');
+
+    newDate.setDate(today.getDate() - 14);
+    component.courseInput.creationDate = newDate;
+    fixture.detectChanges();
+    container = fixture.debugElement.query(By.css('.course-container'));
+    boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
+    expect(boxShadow).toBe('rgb(76, 199, 60) 0px 1px 24px 0px');
+
+    component.courseInput.creationDate = courseDateToRestore;
+  });
+
+  it('should change course box shadow color to black if creationDate > 14 days', () => {
+    const courseDateToRestore = component.courseInput.creationDate;
+    const today = new Date();
+    const newDate = new Date();
+    newDate.setDate(today.getDate() - 15);
+    component.courseInput.creationDate = newDate;
+    fixture.detectChanges();
+    const container = fixture.debugElement.query(By.css('.course-container'));
+    const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
+    expect(boxShadow).toBe('rgb(18, 21, 35) 0px 1px 24px 0px');
     component.courseInput.creationDate = courseDateToRestore;
   });
 
