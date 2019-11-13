@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 import { CourseListItemComponent } from './course-list-item.component';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { CourseListItem } from '../../models/course-list-item.model';
 import { User } from '../../models/user.model';
 import { By } from '@angular/platform-browser';
+import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
 
 describe('CourseListItemComponent', () => {
   let component: CourseListItemComponent;
@@ -27,7 +27,7 @@ describe('CourseListItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CourseListItemComponent, MinutesToHoursWithMinutesPipe]
+      declarations: [CourseListItemComponent, MinutesToHoursWithMinutesPipe, CoursePlateBoxShadowColorDirective]
     })
       .compileComponents();
   }));

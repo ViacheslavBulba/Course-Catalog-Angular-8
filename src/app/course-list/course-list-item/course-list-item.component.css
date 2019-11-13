@@ -91,14 +91,6 @@
   padding-right: 12px;
 }
 
-.is-fresh {
-  box-shadow: 0 1px 24px 0 rgb(76, 199, 60);
-}
-
-.is-upcoming {
-  box-shadow: 0 1px 24px 0 rgb(60, 116, 199);
-}
-
 .is-top-rated {
   background-color: #fafcaa;
 }

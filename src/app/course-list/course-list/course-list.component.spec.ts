@@ -8,6 +8,7 @@ import { LoadMoreComponent } from '../load-more/load-more.component';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { By } from '@angular/platform-browser';
+import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -16,7 +17,7 @@ describe('CourseListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe]
+      declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe, CoursePlateBoxShadowColorDirective]
     })
       .compileComponents();
   }));

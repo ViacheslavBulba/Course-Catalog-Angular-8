@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CourseListItemComponent } from './course-list/course-list-item/course-list-item.component';
 import { MinutesToHoursWithMinutesPipe } from './course-list/pipes/minutes-to-hours-with-minutes.pipe';
 import { OrderByPipe } from './course-list/pipes/order-by.pipe';
+import { CoursePlateBoxShadowColorDirective } from './course-list/directives/course-plate-box-shadow-color.directive';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -33,7 +34,8 @@ describe('AppComponent', () => {
         LoadMoreComponent,
         FooterComponent,
         MinutesToHoursWithMinutesPipe,
-        OrderByPipe
+        OrderByPipe,
+        CoursePlateBoxShadowColorDirective
       ],
     }).compileComponents();
   }));

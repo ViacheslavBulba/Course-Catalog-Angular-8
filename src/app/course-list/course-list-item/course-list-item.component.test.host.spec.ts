@@ -5,6 +5,7 @@ import { CourseListItem } from '../../models/course-list-item.model';
 import { User } from '../../models/user.model';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
+import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
 
 @Component({
   template: `
@@ -30,13 +31,13 @@ class TestHostComponent {
   onDelete(courseInput: CourseListItem) { this.courseToDelete = courseInput; }
 }
 
-describe('CourseListItemComponent', () => {
+describe('CourseListItemComponent via test host', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CourseListItemComponent, TestHostComponent, MinutesToHoursWithMinutesPipe]
+      declarations: [CourseListItemComponent, TestHostComponent, MinutesToHoursWithMinutesPipe, CoursePlateBoxShadowColorDirective]
     })
       .compileComponents();
   }));

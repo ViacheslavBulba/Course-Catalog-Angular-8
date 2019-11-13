@@ -9,9 +9,20 @@ import { LoadMoreComponent } from './load-more/load-more.component';
 import { MinutesToHoursWithMinutesPipe } from './pipes/minutes-to-hours-with-minutes.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CoursePlateBoxShadowColorDirective } from './directives/course-plate-box-shadow-color.directive';
 
 @NgModule({
-  declarations: [SearchComponent, AddCourseComponent, CourseListComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe, FilterPipe],
+  declarations: [
+    SearchComponent,
+    AddCourseComponent,
+    CourseListComponent,
+    CourseListItemComponent,
+    LoadMoreComponent,
+    MinutesToHoursWithMinutesPipe,
+    OrderByPipe,
+    FilterPipe,
+    CoursePlateBoxShadowColorDirective
+  ],
   imports: [
     CommonModule,
     FormsModule
