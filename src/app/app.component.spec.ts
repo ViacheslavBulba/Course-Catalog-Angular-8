@@ -13,6 +13,7 @@ import { CourseListItemComponent } from './course-list/course-list-item/course-l
 import { MinutesToHoursWithMinutesPipe } from './course-list/pipes/minutes-to-hours-with-minutes.pipe';
 import { OrderByPipe } from './course-list/pipes/order-by.pipe';
 import { CoursePlateBoxShadowColorDirective } from './course-list/directives/course-plate-box-shadow-color.directive';
+import { ModalComponent } from './modal/components/modal/modal.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -35,7 +36,8 @@ describe('AppComponent', () => {
         FooterComponent,
         MinutesToHoursWithMinutesPipe,
         OrderByPipe,
-        CoursePlateBoxShadowColorDirective
+        CoursePlateBoxShadowColorDirective,
+        ModalComponent
       ],
     }).compileComponents();
   }));

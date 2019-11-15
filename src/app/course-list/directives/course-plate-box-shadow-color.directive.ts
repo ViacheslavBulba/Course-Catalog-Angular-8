@@ -28,7 +28,7 @@ export class CoursePlateBoxShadowColorDirective implements OnInit, OnChanges {
       this.el.nativeElement.style.boxShadow = '0 1px 24px 0 rgb(60, 116, 199)';
     }
     if (this.date < freshLimitDate) {
-      this.el.nativeElement.style.boxShadow = '0 1px 24px 0 rgb(18, 21, 35)';
+      this.el.nativeElement.style.boxShadow = '0 1px 24px 0 rgba(18, 21, 35, 0.08)';
     }
   }
 

@@ -43,6 +43,15 @@ export class CoursesService {
       durationInMinutes: 59,
       authors: this.simpleAuthorSet,
       topRated: true
+    },
+    {
+      id: 4,
+      title: 'Regular Video course #4',
+      description: 'Course description #4',
+      creationDate: new Date('August 13 2019'),
+      durationInMinutes: 45,
+      authors: this.simpleAuthorSet,
+      topRated: false
     }
   ];
 

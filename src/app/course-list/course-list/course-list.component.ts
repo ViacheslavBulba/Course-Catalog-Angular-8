@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { CoursesService } from '../services/courses.service';
-
+import { ModalService } from 'src/app/modal/services/modal.service';
 
 @Component({
   selector: 'app-course-list',
@@ -14,7 +14,7 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   public courseList: CourseListItem[];
 
-  constructor(private coursesService: CoursesService, private filter: FilterPipe) {
+  constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
   }
 
   ngOnInit() {
@@ -36,6 +36,10 @@ export class CourseListComponent implements OnInit, OnChanges {
       return;
     }
     this.courseList = this.filter.transform(this.courseList, search);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
 }

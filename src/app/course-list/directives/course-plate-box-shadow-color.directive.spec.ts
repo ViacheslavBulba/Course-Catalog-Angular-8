@@ -94,7 +94,7 @@ describe('CoursePlateBoxShadowColorDirective', () => {
     fixture.detectChanges();
     const container = fixture.debugElement.query(By.css('.course-container'));
     const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
-    expect(boxShadow).toBe('rgb(18, 21, 35) 0px 1px 24px 0px');
+    expect(boxShadow).toBe('rgba(18, 21, 35, 0.08) 0px 1px 24px 0px');
     component.courseInput.creationDate = courseDateToRestore;
   });
 

@@ -4,6 +4,14 @@
 
 `ng generate service course-list/services/courses`
 
+**1. Added modal popup implementation**
+
+`ng generate module modal`
+
+`ng generate component modal/components/modal`
+
+`ng generate service modal/services/modal`
+
 # Home Task 4 (Directives and Pipes)
 
 **1. Added custom pipe to change course plate border based on creationDate. If creationDate < today && creationDate >= today - 14 days - fresh course - green border. If creationDate > today - upcoming course - blue border.**
@@ -196,12 +204,11 @@ This project was generated with Angular CLI version 8.3.4.
 
 ## How to run the project locally
 
-1. Download and install NodeJS from https://nodejs.org/en/
-2. Download or clone the project
-3. Open project folder in terminal
-4. Run `npm install -g @angular/cli`
-5. Run `npm install` inside the folder to install all dependencies
-6. Run `ng serve --open`, it will open the project in your browser automatically
+1. Download and install NodeJS (it comes with NPM) from https://nodejs.org/en/
+2. Download or clone the project source code
+3. Install all required npm packages by running npm install from the command line in the project root folder (where the package.json is located).
+4. Install the Angular CLI globally on your system with the command `npm install -g @angular/cli`.
+5. Start the application by running `ng serve --open` from the command line in the project root folder. It will open the project in your browser automatically.
 
 ## Steps performed
 
