@@ -4,7 +4,7 @@
   <div class="courses-container">
     <div>
       <app-course-list-item *ngFor="let course of courseList | orderBy: '-creationDate'" [courseInput]="course"
-        (deleteCourse)="onDelete($event)">
+        (deleteCourse)="saveCourseToBeDeleted($event)">
       </app-course-list-item>
     </div>
     <span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>
@@ -17,12 +17,12 @@
         (click)="closeModal('delete-course-modal')" />
     </div>
     <div class="modal-message">
-      Are you sure you want to delete <span class="course-name">Video Course aaaaaaaaa bbbbbbbbbb cccccccccc dddddddddd
-        eeeeeeeeee</span>?
+      Are you sure you want to delete <span class="course-name">{{courseTitleToDelete}}</span>?
     </div>
     <div class="modal-buttons-box">
       <button class="modal-cancel-button" (click)="closeModal('delete-course-modal')">Cancel</button>
-      <button class="modal-agree-button" (click)="closeModal('delete-course-modal')">Yes, delete</button>
+      <button class="modal-agree-button" (click)="deleteCourse()" (click)="closeModal('delete-course-modal')">Yes,
+        delete</button>
     </div>
   </app-modal>
 </div>

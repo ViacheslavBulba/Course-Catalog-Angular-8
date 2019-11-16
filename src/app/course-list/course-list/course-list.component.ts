@@ -14,6 +14,10 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   public courseList: CourseListItem[];
 
+  private courseToDelete: CourseListItem;
+
+  private courseTitleToDelete = '';
+
   constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
   }
 
@@ -26,8 +30,16 @@ export class CourseListComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
-  onDelete(item: CourseListItem) {
-    console.log('Output from the child to the parent --> delete course id ' + item.id);
+  saveCourseToBeDeleted(item: CourseListItem) {
+    this.courseToDelete = item;
+    this.courseTitleToDelete = this.courseToDelete.title;
+    console.log('Course marked as to be deleted: course id ' + this.courseToDelete.id);
+  }
+
+  deleteCourse() {
+    this.coursesService.removeItem(this.courseToDelete).subscribe();
+    console.log('Course has been deleted: course id ' + this.courseToDelete.id);
+    this.ngOnInit();
   }
 
   onSearch(search: string) {
