@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { CoursesService } from '../services/courses.service';
-import { ModalService } from 'src/app/modal/services/modal.service';
+import { ModalService } from '../../modal/services/modal.service';
 
 @Component({
   selector: 'app-course-list',

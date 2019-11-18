@@ -4,13 +4,17 @@
 
 `ng generate service course-list/services/courses`
 
-**1. Added modal popup implementation**
+**2. Added modal popup implementation**
 
 `ng generate module modal`
 
 `ng generate component modal/components/modal`
 
 `ng generate service modal/services/modal`
+
+**3. Added login component**
+
+**4. Added authorization service**
 
 # Home Task 4 (Directives and Pipes)
 

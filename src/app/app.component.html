@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-breadcrumbs></app-breadcrumbs>
+<app-breadcrumbs *ngIf="isLoggedIn"></app-breadcrumbs>
 <div class="sticky-footer-support">
   <router-outlet></router-outlet>
 </div>

@@ -9,7 +9,7 @@ import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-mi
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { By } from '@angular/platform-browser';
 import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
-import { ModalComponent } from 'src/app/modal/components/modal/modal.component';
+import { ModalComponent } from '../../modal/components/modal/modal.component';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;

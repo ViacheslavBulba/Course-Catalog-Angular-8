@@ -6,6 +6,7 @@ import { LayoutModule } from './layout/layout.module';
 import { CourseListModule } from './course-list/course-list.module';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ROUTES } from './app.routes';
     AppRoutingModule,
     LayoutModule,
     CourseListModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

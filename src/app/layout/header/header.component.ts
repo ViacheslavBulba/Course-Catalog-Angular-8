@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../../login/services/authorization.service';
+import { Account } from '../../models/account.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean;
+
+  constructor(private router: Router, public authorizationService: AuthorizationService) {
+    this.authorizationService.isAuthenticated().subscribe(x => this.isLoggedIn = x);
+  }
 
   ngOnInit() {
   }
 
   onLogout() {
-    console.log('Logout was clicked');
+    this.authorizationService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

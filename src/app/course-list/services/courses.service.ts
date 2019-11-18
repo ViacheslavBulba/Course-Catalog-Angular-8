@@ -19,7 +19,7 @@ export class CoursesService {
   courseList: CourseListItem[] = [
     {
       id: 2,
-      title: 'Fresh course #2',
+      title: 'Course #2',
       description: 'Course description #2',
       creationDate: new Date('November 1 2019'),
       durationInMinutes: 60,
@@ -46,7 +46,7 @@ export class CoursesService {
     },
     {
       id: 4,
-      title: 'Regular Video course #4',
+      title: 'Course #4',
       description: 'Course description #4',
       creationDate: new Date('August 13 2019'),
       durationInMinutes: 45,

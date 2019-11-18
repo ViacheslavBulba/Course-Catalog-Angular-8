@@ -1,0 +1,125 @@
+.login-container {
+  width: 100vw;
+  min-height: calc(100vh - 2*64px);
+  background-color: #f2f3f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 368px;
+  height: 306px;
+  border-radius: 6px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding-left: 23px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 58px;
+  height: 30px;
+  font-family: 'Source Sans Pro';
+  font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #2c2f3c;
+}
+
+.input-container {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 9px;
+}
+
+.label {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #525462;
+}
+
+.required {
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.19px;
+  text-align: right;
+  color: #6c7283;
+}
+
+.login-input {
+  width: 305px;
+  height: 36px;
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.22px;
+  color: #c0c3ce;
+  padding-left: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-left: 36px;
+  padding-right: 24px;
+}
+
+.forgot-password {
+  padding-top: 8px;
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.19px;
+  color: #5681ee;
+}
+
+.login-button {
+  width: 68px;
+  height: 36px;
+  border-radius: 3px;
+  background-color: #d9dbe3;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.57;
+  letter-spacing: -0.1px;
+  color: #a8a9b4;
+}
