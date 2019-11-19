@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthorizationService {
+  private isAuthenticated$ = new BehaviorSubject(false);
 
   private currentUserSubject: BehaviorSubject<Account>;
   public currentUser: Observable<Account>;
@@ -19,17 +20,14 @@ export class AuthorizationService {
   }
 
   isAuthenticated(): Observable<boolean> {
-    if (localStorage.getItem('currentUser') === null) {
-      return of(false);
-    } else {
-      return of(true);
-    }
+    return this.isAuthenticated$;
   }
 
   login(username: string, password: string) {
     this.fakeUser.email = username;
     this.fakeUser.password = password;
     localStorage.setItem('currentUser', JSON.stringify(this.fakeUser));
+    this.isAuthenticated$.next(true);
     console.log('Logged in successfully');
     this.router.navigate(['/courses']);
   }
@@ -37,6 +35,7 @@ export class AuthorizationService {
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.isAuthenticated$.next(false);
     console.log('Logged out');
   }
 
