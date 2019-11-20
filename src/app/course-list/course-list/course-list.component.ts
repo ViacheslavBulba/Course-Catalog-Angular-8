@@ -2,7 +2,6 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { CoursesService } from '../services/courses.service';
-import { ModalService } from '../../modal/services/modal.service';
 
 @Component({
   selector: 'app-course-list',
@@ -14,11 +13,7 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   public courseList: CourseListItem[];
 
-  private courseToDelete: CourseListItem;
-
-  private courseTitleToDelete = '';
-
-  constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
+  constructor(private coursesService: CoursesService, private filter: FilterPipe) {
   }
 
   getList() {
@@ -34,15 +29,8 @@ export class CourseListComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
-  saveCourseToBeDeleted(item: CourseListItem) {
-    this.courseToDelete = item;
-    this.courseTitleToDelete = this.courseToDelete.title;
-    console.log('Course marked as to be deleted: course id ' + this.courseToDelete.id);
-  }
-
-  deleteCourse() {
-    this.coursesService.removeItem(this.courseToDelete).subscribe();
-    console.log('Course has been deleted: course id ' + this.courseToDelete.id);
+  onDelete(course: CourseListItem) {
+    console.log('output from course to list: ' + course.id);
     this.getList();
   }
 
@@ -52,10 +40,6 @@ export class CourseListComponent implements OnInit, OnChanges {
       return;
     }
     this.courseList = this.filter.transform(this.courseList, search);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
   }
 
 }

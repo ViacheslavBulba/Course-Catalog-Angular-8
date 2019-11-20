@@ -1,16 +1,21 @@
 import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
-import { ModalService } from '../../../modal/services/modal.service';
-import { CoursesService } from '../../../course-list/services/courses.service';
-import { CourseListItem } from '../../../models/course-list-item.model';
+import { ModalService } from '../../modal/services/modal.service';
+import { CoursesService } from '../../course-list/services/courses.service';
+import { CourseListItem } from '../../models/course-list-item.model';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+  selector: 'app-delete-course-modal',
+  templateUrl: './delete-course-modal.component.html',
+  styleUrls: ['./delete-course-modal.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ModalComponent implements OnInit, OnDestroy {
+
+export class DeleteCourseModalComponent implements OnInit, OnDestroy {
+
   @Input() id: string;
+
+  @Input() courseInputForModal: CourseListItem;
+
   private element: any;
 
   constructor(private modalService: ModalService, private el: ElementRef, private coursesService: CoursesService) {
@@ -46,9 +51,17 @@ export class ModalComponent implements OnInit, OnDestroy {
     document.body.classList.remove('modal-open');
   }
 
-  deleteCourse(courseListItem: CourseListItem) {
-    console.log('calling delete course from modal component');
-    this.coursesService.removeItem(courseListItem).subscribe();
+  // deleteCourse(courseListItem: CourseListItem) {
+  //   console.log('calling delete course from modal component');
+  //   this.coursesService.removeItem(courseListItem).subscribe();
+  // }
+
+  deleteCourse() {
+    console.log('calling delete course from modal component - ' + this.courseInputForModal.id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
 }

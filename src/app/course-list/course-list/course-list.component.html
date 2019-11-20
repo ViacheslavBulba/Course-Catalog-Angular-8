@@ -4,25 +4,10 @@
   <div class="courses-container">
     <div>
       <app-course-list-item *ngFor="let course of courseList | orderBy: '-creationDate'" [courseInput]="course"
-        (deleteCourse)="saveCourseToBeDeleted($event)">
+        (deleteCourse)="onDelete($event)">
       </app-course-list-item>
     </div>
     <span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>
     <app-load-more *ngIf="courseList.length > 0"></app-load-more>
   </div>
-  <app-modal id="delete-course-modal">
-    <div class="modal-header">
-      <h3>Delete course?</h3>
-      <input class="close" type="image" src="assets/img/close.svg" alt="close modal"
-        (click)="closeModal('delete-course-modal')" />
-    </div>
-    <div class="modal-message">
-      Are you sure you want to delete <span class="course-name">{{courseTitleToDelete}}</span>?
-    </div>
-    <div class="modal-buttons-box">
-      <button class="modal-cancel-button" (click)="closeModal('delete-course-modal')">Cancel</button>
-      <button class="modal-agree-button" (click)="deleteCourse()" (click)="closeModal('delete-course-modal')">Yes,
-        delete</button>
-    </div>
-  </app-modal>
 </div>
