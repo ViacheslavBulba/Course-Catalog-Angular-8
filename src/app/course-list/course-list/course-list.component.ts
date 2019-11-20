@@ -21,10 +21,14 @@ export class CourseListComponent implements OnInit, OnChanges {
   constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
   }
 
-  ngOnInit() {
+  getList() {
     this.coursesService.getList().subscribe(courses => {
       this.courseList = courses;
     });
+  }
+
+  ngOnInit() {
+    this.getList();
   }
 
   ngOnChanges() {
@@ -39,12 +43,12 @@ export class CourseListComponent implements OnInit, OnChanges {
   deleteCourse() {
     this.coursesService.removeItem(this.courseToDelete).subscribe();
     console.log('Course has been deleted: course id ' + this.courseToDelete.id);
-    this.ngOnInit();
+    this.getList();
   }
 
   onSearch(search: string) {
     if (search === '') {
-      this.ngOnInit();
+      this.getList();
       return;
     }
     this.courseList = this.filter.transform(this.courseList, search);
