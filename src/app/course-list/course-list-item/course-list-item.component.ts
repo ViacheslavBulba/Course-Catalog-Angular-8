@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { CourseListItem } from '../../models/course-list-item.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { ModalService } from '../../modal/services/modal.service';
+import { CourseListItem } from '../../models/course-list-item.model';
 
 @Component({
   selector: 'app-course-list-item',
@@ -13,6 +14,10 @@ export class CourseListItemComponent implements OnInit {
   @Output() public deleteCourse = new EventEmitter<CourseListItem>();
 
   constructor(private modalService: ModalService) { }
+
+  public get deleteCourseModalId() {
+    return `delete-course-modal-${this.courseInput.id}`;
+  }
 
   ngOnInit() {
   }

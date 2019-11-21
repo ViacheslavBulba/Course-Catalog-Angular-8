@@ -3,14 +3,14 @@
     <div class="modal-header">
       <h3>Delete course?</h3>
       <input class="close" type="image" src="assets/img/close.svg" alt="close modal"
-        (click)="closeModal('delete-course-modal')" />
+        (click)="closeModal(id)" />
     </div>
     <div class="modal-message">
       Are you sure you want to delete <span class="course-name">{{courseInputForModal.title}}</span>?
     </div>
     <div class="modal-buttons-box">
-      <button class="modal-cancel-button" (click)="closeModal('delete-course-modal')">Cancel</button>
-      <button class="modal-agree-button" (click)="deleteCourse()" (click)="closeModal('delete-course-modal')">Yes,
+      <button class="modal-cancel-button" (click)="closeModal(id)">Cancel</button>
+      <button class="modal-agree-button" (click)="deleteCourse()" (click)="closeModal(id)">Yes,
         delete</button>
     </div>
   </div>
