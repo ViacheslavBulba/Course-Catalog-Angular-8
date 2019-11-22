@@ -16,8 +16,6 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   private courseToDelete: CourseListItem;
 
-  private courseTitleToDelete = '';
-
   constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
   }
 
@@ -36,7 +34,6 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   saveCourseToBeDeleted(item: CourseListItem) {
     this.courseToDelete = item;
-    this.courseTitleToDelete = this.courseToDelete.title;
     console.log('Course marked as to be deleted: course id ' + this.courseToDelete.id);
   }
 

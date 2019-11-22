@@ -17,7 +17,7 @@
         (click)="closeModal('delete-course-modal')" />
     </div>
     <div class="modal-message">
-      Are you sure you want to delete <span class="course-name">{{courseTitleToDelete}}</span>?
+      Are you sure you want to delete <span class="course-name">{{courseToDelete?.title}}</span>?
     </div>
     <div class="modal-buttons-box">
       <button class="modal-cancel-button" (click)="closeModal('delete-course-modal')">Cancel</button>
