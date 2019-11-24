@@ -1,3 +1,13 @@
+# Home Task 6 (Change Detection)
+
+**1. Added ChangeDetectionStrategy.OnPush for course-list-item component**
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+
+**2. ng serve --aot --open**
+
 # Home Task 5 (Modules and Services)
 
 **1. Added courses service**

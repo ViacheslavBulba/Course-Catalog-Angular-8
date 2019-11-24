@@ -19,9 +19,9 @@ export class CoursesService {
   courseList: CourseListItem[] = [
     {
       id: 2,
-      title: 'Course #2',
+      title: 'Fresh Course #2',
       description: 'Course description #2',
-      creationDate: new Date('November 1 2019'),
+      creationDate: new Date('November 22 2019'),
       durationInMinutes: 60,
       authors: this.simpleAuthorSet,
       topRated: false
@@ -30,7 +30,7 @@ export class CoursesService {
       id: 1,
       title: 'Upcoming course #1',
       description: 'Course description #1',
-      creationDate: new Date('December 11 2019'),
+      creationDate: new Date('December 1 2020'),
       durationInMinutes: 90,
       authors: this.simpleAuthorSet,
       topRated: false

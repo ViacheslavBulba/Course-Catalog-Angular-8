@@ -14,7 +14,7 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   public courseList: CourseListItem[];
 
-  private courseToDelete: CourseListItem;
+  public courseToDelete: CourseListItem;
 
   constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
   }

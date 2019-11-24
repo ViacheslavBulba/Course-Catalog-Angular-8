@@ -32,7 +32,7 @@ class TestHostComponent {
 }
 
 describe('CourseListItemComponent via test host', () => {
-  let component: TestHostComponent;
+  let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
   beforeEach(async(() => {
@@ -44,37 +44,59 @@ describe('CourseListItemComponent via test host', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestHostComponent);
-    component = fixture.componentInstance;
+    testHostComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('test host - should raise deleteCourse event when delete button is clicked', () => {
     const deleteDe = fixture.debugElement.query(By.css('.delete button'));
     deleteDe.triggerEventHandler('click', null);
-    expect(component.courseToDelete).toBe(component.courseInput);
+    expect(testHostComponent.courseToDelete).toBe(testHostComponent.courseInput);
   });
 
   it('should remove star if topRated becomes false', () => {
-    // set up pre-conditions
-    component.courseInput.topRated = true;
+    const testCourse1: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date('October 11 2019'),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: true
+    };
+    testHostComponent.courseInput = testCourse1;
     fixture.detectChanges();
-    // should be rendered initially
     expect(fixture.debugElement.query(By.css('.fa.fa-star'))).not.toBeNull();
-    // trigger change
-    component.courseInput.topRated = false;
+    const testCourse2: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date('October 11 2019'),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: false
+    };
+    testHostComponent.courseInput = testCourse2;
     fixture.detectChanges();
-    // should not be rendered
     expect(fixture.debugElement.query(By.css('.fa.fa-star'))).toBeNull();
   });
 
   it('should change course box color to yellow for top rated courses', () => {
-    const courseTopRatedValueToRestore = component.courseInput.topRated;
-    component.courseInput.topRated = true;
+    const courseTopRatedValueToRestore = testHostComponent.courseInput.topRated;
+    testHostComponent.courseInput.topRated = true;
     fixture.detectChanges();
     const container = fixture.debugElement.query(By.css('.course-container'));
     const backgroundColor = window.getComputedStyle(container.nativeElement).backgroundColor;
     expect(backgroundColor).toBe('rgb(250, 252, 170)');
-    component.courseInput.topRated = courseTopRatedValueToRestore;
+    testHostComponent.courseInput.topRated = courseTopRatedValueToRestore;
   });
 
 });

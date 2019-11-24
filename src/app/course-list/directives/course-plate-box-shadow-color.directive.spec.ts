@@ -15,6 +15,7 @@ import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-mi
     </app-course-list-item>`
 })
 class TestHostComponent {
+
   courseInput: CourseListItem = {
     id: 44,
     title: 'Video course #1',
@@ -28,10 +29,11 @@ class TestHostComponent {
     }]),
     topRated: true
   };
+
 }
 
 describe('CoursePlateBoxShadowColorDirective', () => {
-  let component: TestHostComponent;
+  let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
   beforeEach(async(() => {
@@ -46,56 +48,104 @@ describe('CoursePlateBoxShadowColorDirective', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestHostComponent);
-    component = fixture.componentInstance;
+    testHostComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should change course box shadow color to blue if creationDate > today', () => {
-    const courseDateToRestore = component.courseInput.creationDate;
     const today = new Date();
     const newDate = new Date();
     newDate.setDate(today.getDate() + 1);
-    component.courseInput.creationDate = newDate;
+    const testCourse: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date(newDate),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: true
+    };
+    testHostComponent.courseInput = testCourse;
     fixture.detectChanges();
     const container = fixture.debugElement.query(By.css('.course-container'));
     const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
     expect(boxShadow).toBe('rgb(60, 116, 199) 0px 1px 24px 0px');
-    component.courseInput.creationDate = courseDateToRestore;
   });
 
-  it('should change course box shadow color to green if creationDate <= 14 days', () => {
-    const courseDateToRestore = component.courseInput.creationDate;
+  it('should change course box shadow color to green if creationDate <= 14 days (1 day)', () => {
     const today = new Date();
     const newDate = new Date();
-
     newDate.setDate(today.getDate() - 1);
-    component.courseInput.creationDate = newDate;
+    const testCourse: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date(newDate),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: true
+    };
+    testHostComponent.courseInput = testCourse;
     fixture.detectChanges();
-    let container = fixture.debugElement.query(By.css('.course-container'));
-    let boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
+    const container = fixture.debugElement.query(By.css('.course-container'));
+    const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
     expect(boxShadow).toBe('rgb(76, 199, 60) 0px 1px 24px 0px');
+  });
 
+  it('should change course box shadow color to green if creationDate <= 14 days (14 days)', () => {
+    const today = new Date();
+    const newDate = new Date();
     newDate.setDate(today.getDate() - 14);
-    component.courseInput.creationDate = newDate;
+    const testCourse: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date(newDate),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: true
+    };
+    testHostComponent.courseInput = testCourse;
     fixture.detectChanges();
-    container = fixture.debugElement.query(By.css('.course-container'));
-    boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
+    const container = fixture.debugElement.query(By.css('.course-container'));
+    const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
     expect(boxShadow).toBe('rgb(76, 199, 60) 0px 1px 24px 0px');
-
-    component.courseInput.creationDate = courseDateToRestore;
   });
 
   it('should change course box shadow color to black if creationDate > 14 days', () => {
-    const courseDateToRestore = component.courseInput.creationDate;
     const today = new Date();
     const newDate = new Date();
     newDate.setDate(today.getDate() - 15);
-    component.courseInput.creationDate = newDate;
+    const testCourse: CourseListItem = {
+      id: 44,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date(newDate),
+      durationInMinutes: 90,
+      authors: new Set<User>([{
+        id: 33,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }]),
+      topRated: true
+    };
+    testHostComponent.courseInput = testCourse;
     fixture.detectChanges();
     const container = fixture.debugElement.query(By.css('.course-container'));
     const boxShadow = window.getComputedStyle(container.nativeElement).boxShadow;
     expect(boxShadow).toBe('rgba(18, 21, 35, 0.08) 0px 1px 24px 0px');
-    component.courseInput.creationDate = courseDateToRestore;
   });
 
 });
