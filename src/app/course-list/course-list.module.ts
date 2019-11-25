@@ -11,6 +11,7 @@ import { OrderByPipe } from './pipes/order-by.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CoursePlateBoxShadowColorDirective } from './directives/course-plate-box-shadow-color.directive';
 import { ModalModule } from '../modal/modal.module';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ModalModule } from '../modal/modal.module';
     MinutesToHoursWithMinutesPipe,
     OrderByPipe,
     FilterPipe,
-    CoursePlateBoxShadowColorDirective
+    CoursePlateBoxShadowColorDirective,
+    CourseDetailsComponent
   ],
   imports: [
     CommonModule,

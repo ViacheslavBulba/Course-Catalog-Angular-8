@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AuthorizationService } from './login/services/authorization.service';
-import { Account } from './models/account.model';
 
 @Component({
   selector: 'app-root',

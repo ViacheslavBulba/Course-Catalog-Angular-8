@@ -7,6 +7,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { CoursePlateBoxShadowColorDirective } from './course-plate-box-shadow-color.directive';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   template: `
@@ -39,7 +40,8 @@ describe('CoursePlateBoxShadowColorDirective', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        RouterModule.forRoot([])
       ],
       declarations: [TestHostComponent, CourseListItemComponent, CoursePlateBoxShadowColorDirective, MinutesToHoursWithMinutesPipe]
     })

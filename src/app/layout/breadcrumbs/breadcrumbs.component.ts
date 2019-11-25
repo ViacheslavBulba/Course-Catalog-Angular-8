@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbsService } from '../services/breadcrumbs.service';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  constructor() { }
+  breadcrumbs: string;
+
+  constructor(private breadcrumbsService: BreadcrumbsService) { }
 
   ngOnInit() {
+    this.breadcrumbsService.breadcrumbs$.subscribe(breadcrumbs => this.breadcrumbs = breadcrumbs);
   }
 
 }

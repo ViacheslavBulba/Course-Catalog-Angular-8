@@ -6,6 +6,7 @@ import { User } from '../../models/user.model';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
+import { RouterModule } from '@angular/router';
 
 @Component({
   template: `
@@ -37,6 +38,7 @@ describe('CourseListItemComponent via test host', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot([])],
       declarations: [CourseListItemComponent, TestHostComponent, MinutesToHoursWithMinutesPipe, CoursePlateBoxShadowColorDirective]
     })
       .compileComponents();

@@ -6,7 +6,17 @@
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-**2. ng serve --aot --open**
+**2. AOT**
+
+`ng serve --aot --open`
+
+**3. Fixed templates and unit tests**
+
+**4. Added course-details component for add / edit course actions**
+
+`ng generate component course-list/course-details`
+
+`ng generate service course-list/services/edit`
 
 # Home Task 5 (Modules and Services)
 
@@ -24,7 +34,13 @@
 
 **3. Added login component**
 
+`ng generate module login`
+
+`ng generate component login/login`
+
 **4. Added authorization service**
+
+`ng generate service login/services/authorization`
 
 # Home Task 4 (Directives and Pipes)
 
