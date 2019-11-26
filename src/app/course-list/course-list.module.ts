@@ -12,6 +12,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CoursePlateBoxShadowColorDirective } from './directives/course-plate-box-shadow-color.directive';
 import { ModalModule } from '../modal/modal.module';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { DateSelectorComponent } from './date-selector/date-selector.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
     OrderByPipe,
     FilterPipe,
     CoursePlateBoxShadowColorDirective,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    DateSelectorComponent
   ],
   imports: [
     CommonModule,

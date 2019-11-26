@@ -27,7 +27,7 @@
         <div class="label">Date:</div>
         <div class="required">*required</div>
       </div>
-      <input type="text" placeholder="mm-dd-yyyy" class="input" [ngModel]="course?.creationDate | date : 'd MMM, y'">
+      <app-date-selector></app-date-selector>
     </div>
     <div class="input-container-half">
       <div class="input-labels">
