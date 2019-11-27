@@ -15,6 +15,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { DurationComponent } from './duration/duration.component';
+import { AuthorsComponent } from './authors/authors.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DurationComponent } from './duration/duration.component';
     CoursePlateBoxShadowColorDirective,
     CourseDetailsComponent,
     DateSelectorComponent,
-    DurationComponent
+    DurationComponent,
+    AuthorsComponent
   ],
   imports: [
     CommonModule,

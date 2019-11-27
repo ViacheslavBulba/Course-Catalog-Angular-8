@@ -17,13 +17,7 @@
     </div>
     <app-duration [durationInMinutes]="course?.durationInMinutes"></app-duration>
     <app-date-selector [date]="course?.creationDate"></app-date-selector>
-    <div class="input-container-half">
-      <div class="input-labels">
-        <div class="label">Authors:</div>
-        <div class="required">*required</div>
-      </div>
-      <input type="text" placeholder="Add authors, start typing..." class="input">
-    </div>
+    <app-authors></app-authors>
     <div class="buttons-box">
       <button class="decline-button">Cancel</button>
       <button class="agree-button">Save</button>
