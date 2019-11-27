@@ -135,6 +135,18 @@ describe('CourseListItemComponent', () => {
 
 **3. Failed: Template parse errors: Can't bind to 'courseInput' since it isn't a known property of 'app-course-list-item'**
 
+First of all add to declarations all your component used
+
+```
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [FormsModule, RouterModule.forRoot([])],
+      declarations: [CourseDetailsComponent, DateSelectorComponent, DurationComponent]
+    })
+      .compileComponents();
+  }));
+```
+
 Try to add forms module, like here:
 
 ```
