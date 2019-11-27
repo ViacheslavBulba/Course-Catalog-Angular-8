@@ -1,0 +1,54 @@
+.input-labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 9px;
+}
+
+.label {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #525462;
+}
+
+.required {
+  font-family: 'Source Sans Pro';
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.19px;
+  text-align: right;
+  color: #6c7283;
+}
+
+.input {
+  height: 36px;
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.22px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.input-container-quarter {
+  width: 25%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}

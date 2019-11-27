@@ -24,6 +24,10 @@
 
 `npm install @syncfusion/ej2-angular-calendars --save`
 
+**5. Added separate component for duration**
+
+`ng generate component course-list/duration`
+
 # Home Task 5 (Modules and Services)
 
 **1. Added courses service**

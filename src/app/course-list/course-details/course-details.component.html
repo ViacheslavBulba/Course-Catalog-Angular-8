@@ -15,13 +15,7 @@
       </div>
       <textarea type="text" placeholder="Add description" class="text-area" [ngModel]="course?.description"></textarea>
     </div>
-    <div class="input-container-quarter">
-      <div class="input-labels">
-        <div class="label">Duration:</div>
-        <div class="required">*required</div>
-      </div>
-      <input type="text" placeholder="Enter in minutes" class="input" [ngModel]="course?.durationInMinutes">
-    </div>
+    <app-duration [durationInMinutes]="course?.durationInMinutes"></app-duration>
     <div class="input-container-quarter">
       <div class="input-labels">
         <div class="label">Date:</div>

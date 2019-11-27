@@ -14,6 +14,7 @@ import { ModalModule } from '../modal/modal.module';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DurationComponent } from './duration/duration.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
     FilterPipe,
     CoursePlateBoxShadowColorDirective,
     CourseDetailsComponent,
-    DateSelectorComponent
+    DateSelectorComponent,
+    DurationComponent
   ],
   imports: [
     CommonModule,
