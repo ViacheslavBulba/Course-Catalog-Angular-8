@@ -13,6 +13,7 @@ import { CoursePlateBoxShadowColorDirective } from './directives/course-plate-bo
 import { ModalModule } from '../modal/modal.module';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { DateSelectorComponent } from './date-selector/date-selector.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DateSelectorComponent } from './date-selector/date-selector.component';
   imports: [
     CommonModule,
     FormsModule,
-    ModalModule
+    ModalModule,
+    DatePickerModule
   ],
   exports: [SearchComponent, AddCourseComponent, CourseListComponent, LoadMoreComponent]
 })

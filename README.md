@@ -18,6 +18,12 @@
 
 `ng generate service course-list/services/edit`
 
+**5. Added date picker / selector**
+
+`ng generate component course-list/date-selector`
+
+`npm install @syncfusion/ej2-angular-calendars --save`
+
 # Home Task 5 (Modules and Services)
 
 **1. Added courses service**
