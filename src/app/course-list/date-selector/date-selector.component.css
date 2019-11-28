@@ -42,11 +42,7 @@
   flex-direction: column;
 }
 
-.input {
-  height: 36px;
-  border-radius: 3px;
-  border: solid 1px #d9dbe3;
-  background-color: #ffffff;
+.e-date-wrapper {
   font-family: 'Source Sans Pro';
   font-size: 14px;
   font-weight: normal;
@@ -56,4 +52,26 @@
   letter-spacing: 0.22px;
   padding-left: 12px;
   padding-right: 12px;
+  height: 34px;
+  background: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  border-bottom: transparent !important;
+  padding-right: 0;
+}
+
+.e-datepicker {
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+}
+
+.e-input-group-icon.e-date-icon.e-icons {
+  color: #c0c3ce;
+}
+
+.e-input-group-icon.e-date-icon.e-icons {
+  height: 34px;
+  width: 34px;
 }

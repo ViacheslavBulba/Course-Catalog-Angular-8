@@ -12,7 +12,7 @@ button {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #c0c3ce;
+  color: #c0c3ce !important;
   opacity: 1;
   font-family: 'Source Sans Pro';
   font-size: 14px;
