@@ -19,8 +19,8 @@
     <app-date-selector [date]="course?.creationDate"></app-date-selector>
     <app-authors></app-authors>
     <div class="buttons-box">
-      <button class="decline-button">Cancel</button>
-      <button class="agree-button">Save</button>
+      <button class="decline-button" (click)="onCancel()">Cancel</button>
+      <button class="agree-button" (click)="onSave()">Save</button>
     </div>
   </div>
 </div>

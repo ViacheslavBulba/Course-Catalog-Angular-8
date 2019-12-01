@@ -24,7 +24,7 @@ export class CourseListItemComponent implements OnInit {
   onEdit() {
     console.log('Edit course id ' + this.courseInput.id);
     this.editService.setCourseToEdit(this.courseInput);
-    this.router.navigate(['/course-details']);
+    this.router.navigate(['/courses', this.courseInput.id]);
     this.breadcrumbsService.setBreadcrumbs('Courses / Edit Course');
   }
 

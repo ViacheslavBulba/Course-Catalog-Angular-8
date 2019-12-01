@@ -16,7 +16,7 @@ export class AddCourseComponent implements OnInit {
 
   onAddCourse() {
     console.log('Add Course button was clicked');
-    this.router.navigate(['/course-details']);
+    this.router.navigate(['/courses/new']);
     this.breadcrumbsService.setBreadcrumbs('Courses / New Course');
   }
 

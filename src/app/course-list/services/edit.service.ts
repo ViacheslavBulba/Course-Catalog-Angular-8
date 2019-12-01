@@ -17,4 +17,8 @@ export class EditService {
     this._courseToEdit.next(courseListItem);
   }
 
+  reset() {
+    this._courseToEdit.next(null);
+  }
+
 }

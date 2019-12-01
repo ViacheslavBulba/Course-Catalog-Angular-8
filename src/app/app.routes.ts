@@ -8,5 +8,7 @@ export const ROUTES: Route[] = [
   { path: 'courses', component: CourseListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'course-details', component: CourseDetailsComponent },
+  { path: 'courses/new', component: CourseDetailsComponent },
+  { path: 'courses/:id', component: CourseDetailsComponent },
   { path: '**', redirectTo: '' }
 ];
