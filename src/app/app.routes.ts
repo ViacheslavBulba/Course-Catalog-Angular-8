@@ -2,13 +2,13 @@ import { Route } from '@angular/router';
 import { CourseListComponent } from './course-list/course-list/course-list.component';
 import { LoginComponent } from './login/login/login.component';
 import { CourseDetailsComponent } from './course-list/course-details/course-details.component';
+import { AuthGuard } from './login/auth.guard';
 
 export const ROUTES: Route[] = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'courses', component: CourseListComponent },
+  { path: '', component: CourseListComponent, canActivate: [AuthGuard] },
+  { path: 'courses', component: CourseListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'course-details', component: CourseDetailsComponent },
-  { path: 'courses/new', component: CourseDetailsComponent },
-  { path: 'courses/:id', component: CourseDetailsComponent },
+  { path: 'courses/new', component: CourseDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'courses/:id', component: CourseDetailsComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
