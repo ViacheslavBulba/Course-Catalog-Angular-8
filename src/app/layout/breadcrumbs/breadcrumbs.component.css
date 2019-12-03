@@ -14,3 +14,32 @@
   color: #2c2f3c;
   margin-left: 6vw;
 }
+
+li {
+  list-style: none;
+  float: left;
+  text-decoration: none;
+  color: #2c2f3c;
+}
+
+li:first-child a {
+  text-decoration: underline;
+  margin-right: 5px;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+li:last-child a {
+  text-decoration: none;
+  color: #2c2f3c;
+  pointer-events: none;
+  cursor: default;
+}
+
+li::before {
+  content: '/';
+}
+
+li:first-child::before {
+  content: '';
+}

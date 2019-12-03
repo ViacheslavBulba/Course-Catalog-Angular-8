@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
 
 describe('BreadcrumbsComponent', () => {
@@ -8,6 +8,7 @@ describe('BreadcrumbsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot([])],
       declarations: [BreadcrumbsComponent]
     })
       .compileComponents();
@@ -21,11 +22,6 @@ describe('BreadcrumbsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('breadcrumbs text should Courses', () => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.breadcrumbs-text').textContent).toBe('Courses');
   });
 
 });

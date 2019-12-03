@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { BreadcrumbsService } from 'src/app/layout/services/breadcrumbs.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-course',
@@ -9,15 +8,14 @@ import { BreadcrumbsService } from 'src/app/layout/services/breadcrumbs.service'
 })
 export class AddCourseComponent implements OnInit {
 
-  constructor(private router: Router, private breadcrumbsService: BreadcrumbsService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   onAddCourse() {
     console.log('Add Course button was clicked');
-    this.router.navigate(['/courses/new']);
-    this.breadcrumbsService.setBreadcrumbs('Courses / New Course');
+    this.router.navigate(['courses/new']);
   }
 
 }

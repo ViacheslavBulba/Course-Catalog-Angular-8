@@ -101,6 +101,16 @@ export class CoursesService {
     }));
   }
 
+  getCourseNameById(id: number): string {
+    for (const course of this.courseList) {
+      if (course.id === id) {
+        console.log('found course title = ' + course.title)
+        return course.title;
+      }
+    }
+    return '';
+  }
+
   updateItem(courseListItem: CourseListItem): Observable<CourseListItem[]> {
     for (const course of this.courseList) {
       if (course.id === courseListItem.id) {
