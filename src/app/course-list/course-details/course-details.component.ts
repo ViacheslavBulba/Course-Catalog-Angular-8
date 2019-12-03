@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseListItem } from 'src/app/models/course-list-item.model';
-import { EditService } from '../services/edit.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { CoursesService } from '../services/courses.service';
 
@@ -16,17 +15,17 @@ export class CourseDetailsComponent implements OnInit {
 
   course: CourseListItem;
 
-  constructor(private editService: EditService, private router: Router, private coursesService: CoursesService) { }
+  constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.editService.courseToEdit$.subscribe(course => this.course = course);
-    if (this.course != null) {
+    if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       this.header = 'Edit Course';
+      const id = Number(this.activatedRoute.snapshot.url);
+      this.course = this.coursesService.getCourseById(id);
     }
   }
 
   onCancel() {
-    this.editService.reset();
     this.router.navigate(['/courses']);
   }
 
@@ -37,7 +36,6 @@ export class CourseDetailsComponent implements OnInit {
       console.log('create new course');
     }
     this.router.navigate(['/courses']);
-    this.editService.reset();
   }
 
 }

@@ -104,11 +104,19 @@ export class CoursesService {
   getCourseNameById(id: number): string {
     for (const course of this.courseList) {
       if (course.id === id) {
-        console.log('found course title = ' + course.title)
         return course.title;
       }
     }
     return '';
+  }
+
+  getCourseById(id: number): CourseListItem {
+    for (const course of this.courseList) {
+      if (course.id === id) {
+        return course;
+      }
+    }
+    return null;
   }
 
   updateItem(courseListItem: CourseListItem): Observable<CourseListItem[]> {
