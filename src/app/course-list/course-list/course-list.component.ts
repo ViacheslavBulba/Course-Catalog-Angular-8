@@ -38,7 +38,7 @@ export class CourseListComponent implements OnInit, OnChanges {
   }
 
   deleteCourse() {
-    this.coursesService.removeItem(this.courseToDelete).subscribe();
+    this.coursesService.removeItem(this.courseToDelete);
     console.log('Course has been deleted: course id ' + this.courseToDelete.id);
     this.getList();
   }

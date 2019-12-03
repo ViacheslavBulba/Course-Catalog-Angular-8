@@ -48,7 +48,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   deleteCourse(courseListItem: CourseListItem) {
     console.log('calling delete course from modal component');
-    this.coursesService.removeItem(courseListItem).subscribe();
+    this.coursesService.removeItem(courseListItem);
   }
 
 }
