@@ -39,9 +39,14 @@ export class CourseDetailsComponent implements OnInit {
     this.router.navigate(['/courses']);
   }
 
+  saveDurationOutput(duration: number) {
+    this.course.durationInMinutes = duration;
+  }
+
   onSave() {
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
+      this.coursesService.updateItem(this.course);
     } else {
       console.log('create new course');
       // console.log(this.course.title);
