@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
     "@syncfusion/ej2-angular-calendars": "^17.3.28",
+    "@syncfusion/ej2-angular-dropdowns": "^17.3.30",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

@@ -47,6 +47,10 @@ export class CourseDetailsComponent implements OnInit {
     this.course.creationDate = date;
   }
 
+  saveAuthorsOutput(users: Set<User>) {
+    this.course.authors = users;
+  }
+
   onSave() {
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');

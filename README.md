@@ -1,3 +1,5 @@
+npm install @syncfusion/ej2-angular-dropdowns --save
+
 # Home Task 6 (Change Detection)
 
 **1. Added ChangeDetectionStrategy.OnPush for course-list-item component**
