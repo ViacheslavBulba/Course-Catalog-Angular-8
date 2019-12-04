@@ -22,6 +22,16 @@ export class CourseDetailsComponent implements OnInit {
       this.header = 'Edit Course';
       const id = Number(this.activatedRoute.snapshot.url);
       this.course = this.coursesService.getCourseById(id);
+    } else {
+      this.course = {
+        id: Number(new Date()),
+        title: '',
+        description: '',
+        creationDate: null,
+        durationInMinutes: null,
+        authors: null,
+        topRated: false
+      };
     }
   }
 
@@ -30,10 +40,35 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   onSave() {
-    if (this.course != null) {
+    if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
     } else {
       console.log('create new course');
+      // console.log(this.course.title);
+      // console.log(this.course.description);
+      // console.log(this.course.durationInMinutes);
+      // console.log(this.course.creationDate);
+      // console.log(this.course.authors);
+      if (this.course.title === '') {
+        this.course.title = String(new Date());
+      }
+      if (this.course.description === '') {
+        this.course.description = 'Test course description';
+      }
+      if (this.course.creationDate === null) {
+        this.course.creationDate = new Date();
+      }
+      if (this.course.durationInMinutes === null) {
+        this.course.durationInMinutes = 60;
+      }
+      if (this.course.authors === null) {
+        this.course.authors = new Set<User>([{
+          id: 999,
+          firstName: 'Auto',
+          lastName: 'One'
+        }]);
+      }
+      this.coursesService.createCourse(this.course);
     }
     this.router.navigate(['/courses']);
   }

@@ -16,7 +16,7 @@ export class CoursesService {
         id: 2,
         title: 'Fresh Course #2',
         description: 'Course description #2',
-        creationDate: new Date('November 22 2019'),
+        creationDate: new Date(),
         durationInMinutes: 60,
         authors: new Set<User>([{
           id: 2,
