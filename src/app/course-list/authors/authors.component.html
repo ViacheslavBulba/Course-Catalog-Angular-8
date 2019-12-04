@@ -3,7 +3,7 @@
     <div class="label">Authors:</div>
     <div class="required">*required</div>
   </div>
-  <ejs-multiselect id='localData' #local [dataSource]='authors' [placeholder]="'Add authors, start typing...'"
+  <ejs-multiselect id='localData' #local [dataSource]='value' [placeholder]="'Add authors, start typing...'"
     [(value)]='value' [allowCustomValue]='true' (removing)="emitOutput()" (select)="emitOutput()"
     (customValueSelection)="newDataAdded($event)">
   </ejs-multiselect>
