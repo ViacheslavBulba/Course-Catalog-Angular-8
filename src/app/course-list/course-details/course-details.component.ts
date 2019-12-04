@@ -43,6 +43,10 @@ export class CourseDetailsComponent implements OnInit {
     this.course.durationInMinutes = duration;
   }
 
+  saveDateOutput(date: Date) {
+    this.course.creationDate = date;
+  }
+
   onSave() {
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
