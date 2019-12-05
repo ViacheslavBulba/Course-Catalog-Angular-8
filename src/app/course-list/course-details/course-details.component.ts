@@ -15,6 +15,12 @@ export class CourseDetailsComponent implements OnInit {
 
   course: CourseListItem;
 
+  private tempDuration: number = null;
+
+  private tempDate: Date = null;
+
+  private tempAuthors: Set<User> = null;
+
   constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -40,24 +46,34 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   saveDurationOutput(duration: number) {
-    this.course.durationInMinutes = duration;
+    this.tempDuration = duration;
   }
 
   saveDateOutput(date: Date) {
-    this.course.creationDate = date;
+    this.tempDate = date;
+  }
+
+  saveAuthorsOutput(users: Set<User>) {
+    this.tempAuthors = users;
   }
 
   onSave() {
+
+    if (this.tempDuration !== null) {
+      this.course.durationInMinutes = this.tempDuration;
+    }
+    if (this.tempDate !== null) {
+      this.course.creationDate = this.tempDate;
+    }
+    if (this.tempAuthors !== null) {
+      this.course.authors = this.tempAuthors;
+    }
+
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
       this.coursesService.updateItem(this.course);
     } else {
       console.log('create new course');
-      // console.log(this.course.title);
-      // console.log(this.course.description);
-      // console.log(this.course.durationInMinutes);
-      // console.log(this.course.creationDate);
-      // console.log(this.course.authors);
       if (this.course.title === '') {
         this.course.title = String(new Date());
       }

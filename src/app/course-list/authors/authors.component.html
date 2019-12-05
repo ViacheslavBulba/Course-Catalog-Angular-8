@@ -3,5 +3,7 @@
     <div class="label">Authors:</div>
     <div class="required">*required</div>
   </div>
-  <input type="text" placeholder="Add authors, start typing..." class="input">
+  <ng-select [items]="authors" bindLabel="value" bindValue="value" [addTag]="addCustomUser" [multiple]="true"
+    [(ngModel)]="selectedAuthors" placeholder="Add authors, start typing..." (change)="emitOutput()">
+  </ng-select>
 </div>
