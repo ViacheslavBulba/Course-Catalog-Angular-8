@@ -6,6 +6,7 @@ import { DurationComponent } from '../duration/duration.component';
 import { DateSelectorComponent } from '../date-selector/date-selector.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { AuthorsComponent } from '../authors/authors.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
@@ -13,7 +14,7 @@ describe('CourseDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterModule.forRoot([]), DatePickerModule],
+      imports: [FormsModule, RouterModule.forRoot([]), DatePickerModule, NgSelectModule],
       declarations: [CourseDetailsComponent, DateSelectorComponent, DurationComponent, AuthorsComponent]
     })
       .compileComponents();
