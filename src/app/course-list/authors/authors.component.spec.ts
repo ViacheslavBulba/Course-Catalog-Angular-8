@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AuthorsComponent } from './authors.component';
 
@@ -8,9 +10,15 @@ describe('AuthorsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorsComponent ]
+      declarations: [
+        AuthorsComponent,
+      ],
+      imports: [
+        FormsModule,
+        NgSelectModule,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
