@@ -1,12 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { CourseDetailsComponent } from './course-details.component';
-import { DurationComponent } from '../duration/duration.component';
-import { DateSelectorComponent } from '../date-selector/date-selector.component';
-import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
-import { AuthorsComponent } from '../authors/authors.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+
+import { AuthorsComponent } from '../authors/authors.component';
+import { DateSelectorComponent } from '../date-selector/date-selector.component';
+import { DurationComponent } from '../duration/duration.component';
+import { CourseDetailsComponent } from './course-details.component';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
@@ -14,8 +15,21 @@ describe('CourseDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterModule.forRoot([]), DatePickerModule, NgSelectModule],
-      declarations: [CourseDetailsComponent, DateSelectorComponent, DurationComponent, AuthorsComponent]
+      imports: [
+        FormsModule,
+        RouterModule.forRoot([]),
+        DatePickerModule,
+        NgSelectModule,
+      ],
+      declarations: [
+        CourseDetailsComponent,
+        DateSelectorComponent,
+        DurationComponent,
+        AuthorsComponent,
+      ],
+      providers: [
+        { provide: ActivatedRoute, useValue: { snapshot: { url: 'new' } } },
+      ]
     })
       .compileComponents();
   }));

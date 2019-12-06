@@ -9,8 +9,13 @@ describe('AuthorsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, NgSelectModule],
-      declarations: [AuthorsComponent]
+      declarations: [
+        AuthorsComponent,
+      ],
+      imports: [
+        FormsModule,
+        NgSelectModule,
+      ]
     })
       .compileComponents();
   }));
