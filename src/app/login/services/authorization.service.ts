@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Account } from '../../models/account.model';
+import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class AuthorizationService {
   private isAuthenticated$ = new BehaviorSubject(false);
 
-  private currentUserSubject: BehaviorSubject<Account>;
-  public currentUser: Observable<Account>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  fakeUser: Account = { email: 'user', password: 'password' };
+  fakeUser: User = { email: 'user', password: 'password' };
 
   constructor(private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<Account>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 

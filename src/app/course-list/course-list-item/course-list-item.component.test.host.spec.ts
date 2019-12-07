@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 import { CourseListItemComponent } from './course-list-item.component';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { User } from '../../models/user.model';
+import { Author } from '../../models/author.model';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
@@ -21,7 +21,7 @@ class TestHostComponent {
     description: 'Course description #1',
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
-    authors: new Set<User>([{
+    authors: new Set<Author>([{
       id: 33,
       firstName: 'Slava',
       lastName: 'Bulba'
@@ -63,7 +63,7 @@ describe('CourseListItemComponent via test host', () => {
       description: 'Course description #1',
       creationDate: new Date('October 11 2019'),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
@@ -79,7 +79,7 @@ describe('CourseListItemComponent via test host', () => {
       description: 'Course description #1',
       creationDate: new Date('October 11 2019'),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { User } from '../../models/user.model';
+import { Author } from '../../models/author.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class CoursesService {
         description: 'Course description #2',
         creationDate: new Date(),
         durationInMinutes: 60,
-        authors: new Set<User>([{
+        authors: new Set<Author>([{
           id: 2,
           firstName: 'Author',
           lastName: 'Two'
@@ -31,7 +31,7 @@ export class CoursesService {
         description: 'Course description #1',
         creationDate: new Date('December 1 2020'),
         durationInMinutes: 90,
-        authors: new Set<User>([{
+        authors: new Set<Author>([{
           id: 21,
           firstName: 'Slava',
           lastName: 'Bulba'
@@ -54,7 +54,7 @@ export class CoursesService {
         description: 'Course description #3',
         creationDate: new Date('October 13 2019'),
         durationInMinutes: 59,
-        authors: new Set<User>([{
+        authors: new Set<Author>([{
           id: 3,
           firstName: 'Author',
           lastName: 'Three'
@@ -67,7 +67,7 @@ export class CoursesService {
         description: 'Course description #4',
         creationDate: new Date('August 13 2019'),
         durationInMinutes: 45,
-        authors: new Set<User>([{
+        authors: new Set<Author>([{
           id: 4,
           firstName: 'Author',
           lastName: 'Four'

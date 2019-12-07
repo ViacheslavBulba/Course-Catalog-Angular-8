@@ -1,7 +1,7 @@
 import { CourseListItemComponent } from '../../course-list/course-list-item/course-list-item.component';
 import { Component } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { User } from '../../models/user.model';
+import { Author } from '../../models/author.model';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ class TestHostComponent {
     description: 'Course description #1',
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
-    authors: new Set<User>([{
+    authors: new Set<Author>([{
       id: 33,
       firstName: 'Slava',
       lastName: 'Bulba'
@@ -64,7 +64,7 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
@@ -88,7 +88,7 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
@@ -112,7 +112,7 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
@@ -136,7 +136,7 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<User>([{
+      authors: new Set<Author>([{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'

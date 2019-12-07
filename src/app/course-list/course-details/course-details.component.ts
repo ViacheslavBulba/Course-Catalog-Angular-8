@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseListItem } from 'src/app/models/course-list-item.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/user.model';
+import { Author } from 'src/app/models/author.model';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class CourseDetailsComponent implements OnInit {
 
   private tempDate: Date = null;
 
-  private tempAuthors: Set<User> = null;
+  private tempAuthors: Set<Author> = null;
 
   constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) { }
 
@@ -53,7 +53,7 @@ export class CourseDetailsComponent implements OnInit {
     this.tempDate = date;
   }
 
-  saveAuthorsOutput(users: Set<User>) {
+  saveAuthorsOutput(users: Set<Author>) {
     this.tempAuthors = users;
   }
 
@@ -87,7 +87,7 @@ export class CourseDetailsComponent implements OnInit {
         this.course.durationInMinutes = 60;
       }
       if (this.course.authors === null) {
-        this.course.authors = new Set<User>([{
+        this.course.authors = new Set<Author>([{
           id: 999,
           firstName: 'Auto',
           lastName: 'One'

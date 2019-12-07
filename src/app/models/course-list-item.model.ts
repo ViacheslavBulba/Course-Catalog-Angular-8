@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { Author } from './author.model';
 
 export interface CourseListItem {
   id: number;
@@ -6,6 +6,6 @@ export interface CourseListItem {
   description: string;
   creationDate: Date;
   durationInMinutes: number;
-  authors: Set<User>;
+  authors: Set<Author>;
   topRated: boolean;
 }

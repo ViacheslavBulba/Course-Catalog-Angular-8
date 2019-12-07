@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../../models/user.model';
+import { Author } from '../../models/author.model';
 @Component(
   {
     selector: 'app-authors',
@@ -9,8 +9,8 @@ import { User } from '../../models/user.model';
   })
 export class AuthorsComponent implements OnInit {
 
-  @Input() public incomingAuthors: Set<User>;
-  @Output() public authorsOutput = new EventEmitter<Set<User>>();
+  @Input() public incomingAuthors: Set<Author>;
+  @Output() public authorsOutput = new EventEmitter<Set<Author>>();
 
   authors = [];
   selectedAuthors: string[] = [];
@@ -33,10 +33,10 @@ export class AuthorsComponent implements OnInit {
   addCustomUser = (newCustomValue: any) => ({ id: newCustomValue, value: newCustomValue });
 
   emitOutput() {
-    const authorsToSend = new Set<User>();
+    const authorsToSend = new Set<Author>();
     for (const fullName of this.selectedAuthors) {
       const names: string[] = fullName.split(' ');
-      let author: User;
+      let author: Author;
       if (names.length !== 2) {
         author = {
           id: Number(new Date()),
