@@ -1,3 +1,10 @@
 <div class="breadcrumbs">
-  <div class="breadcrumbs-text">{{ breadcrumbs }}</div>
+  <!-- <div class="breadcrumbs-text">{{ breadcrumbs }}</div> -->
+  <ol class="breadcrumbs-text">
+    <li *ngFor="let breadcrumb of breadcrumbs">
+      <a [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+        {{ breadcrumb.label }}
+      </a>
+    </li>
+  </ol>
 </div>

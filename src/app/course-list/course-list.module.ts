@@ -16,6 +16,7 @@ import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { DurationComponent } from './duration/duration.component';
 import { AuthorsComponent } from './authors/authors.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuthorsComponent } from './authors/authors.component';
     CommonModule,
     FormsModule,
     ModalModule,
-    DatePickerModule
+    DatePickerModule,
+    NgSelectModule
   ],
   exports: [SearchComponent, AddCourseComponent, CourseListComponent, LoadMoreComponent]
 })

@@ -1,3 +1,4 @@
+@import "../../../../node_modules/@ng-select/ng-select/themes/default.theme.css";
 .input-labels {
   display: flex;
   flex-direction: row;
@@ -51,4 +52,74 @@
   padding-bottom: 12px;
   display: flex;
   flex-direction: column;
+}
+
+.ng-select {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.ng-select-container {
+  height: auto;
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.22px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  color: #c0c3ce !important;
+  opacity: 1;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.22px;
+}
+
+.ng-value-container, .ng-input, .ng-input>input, .ng-placeholder, .ng-option-label, .ng-value-label, .ng-option span {
+  font-family: 'Source Sans Pro' !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  font-stretch: normal !important;
+  font-style: normal !important;
+  line-height: 1.71 !important;
+  letter-spacing: 0.22px !important;
+}
+
+.ng-value-container, .ng-input, .ng-input>input, .ng-placeholder {
+  padding: 0 !important;
+}
+
+.ng-select-container {
+  border: solid 1px #d9dbe3 !important;
+}
+
+.ng-value {
+  background-color: #f2f3f7 !important;
+  padding: 0 !important;
+  margin: 2px 5px 2px 0 !important;
+}
+
+.ng-value-icon.left {
+  border-right: 1px solid #f2f3f7 !important;
+}
+
+.ng-option-selected, .ng-option-marked {
+  background-color: #f2f3f7 !important;
+}
+
+.ng-value-label {
+  padding-left: 0 !important;
 }
