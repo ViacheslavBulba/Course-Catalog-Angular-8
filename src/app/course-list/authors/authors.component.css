@@ -78,17 +78,9 @@
 
 .ng-select .ng-select-container .ng-value-container .ng-placeholder {
   color: #c0c3ce !important;
-  opacity: 1;
-  font-family: 'Source Sans Pro';
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.71;
-  letter-spacing: 0.22px;
 }
 
-.ng-value-container, .ng-input, .ng-input>input, .ng-placeholder, .ng-option-label, .ng-value-label, .ng-option span {
+.ng-value-container, .ng-input, .ng-input>input, .ng-placeholder, .ng-option-label, .ng-value-label, .ng-option span, .ng-option.ng-option-disabled {
   font-family: 'Source Sans Pro' !important;
   font-size: 14px !important;
   font-weight: normal !important;

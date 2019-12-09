@@ -6,14 +6,16 @@
         <div class="label">Title:</div>
         <div class="required">*required</div>
       </div>
-      <input type="text" placeholder="Add title" class="input" [(ngModel)]="course.title">
+      <input type="text" placeholder="Add title" class="input" [ngModel]="course?.title"
+        (ngModel)="course.title = $event">
     </div>
     <div class="input-container">
       <div class="input-labels">
         <div class="label">Description:</div>
         <div class="required">*required</div>
       </div>
-      <textarea type="text" placeholder="Add description" class="text-area" [(ngModel)]="course.description"></textarea>
+      <textarea type="text" placeholder="Add description" class="text-area" [ngModel]="course?.description"
+        (ngModel)="course.description = $event"></textarea>
     </div>
     <app-duration [durationInMinutes]="course?.durationInMinutes" (durationOutput)="saveDurationOutput($event)">
     </app-duration>

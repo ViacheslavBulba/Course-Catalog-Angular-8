@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
 import { Author } from '../../models/author.model';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,79 +11,14 @@ export class CoursesService {
 
   courseList: CourseListItem[] = [];
 
-  constructor() {
-    this.courseList = [
-      {
-        id: 2,
-        title: 'Fresh Course #2',
-        description: 'Course description #2',
-        creationDate: new Date(),
-        durationInMinutes: 60,
-        authors: new Set<Author>([{
-          id: 2,
-          firstName: 'Author',
-          lastName: 'Two'
-        }]),
-        topRated: false
-      },
-      {
-        id: 1,
-        title: 'Upcoming course #1',
-        description: 'Course description #1',
-        creationDate: new Date('December 1 2020'),
-        durationInMinutes: 90,
-        authors: new Set<Author>([{
-          id: 21,
-          firstName: 'Slava',
-          lastName: 'Bulba'
-        },
-        {
-          id: 22,
-          firstName: 'John',
-          lastName: 'Doe'
-        },
-        {
-          id: 33,
-          firstName: 'Joseph',
-          lastName: 'Smith'
-        }]),
-        topRated: false
-      },
-      {
-        id: 3,
-        title: 'Top Rated Video course #3',
-        description: 'Course description #3',
-        creationDate: new Date('October 13 2019'),
-        durationInMinutes: 59,
-        authors: new Set<Author>([{
-          id: 3,
-          firstName: 'Author',
-          lastName: 'Three'
-        }]),
-        topRated: true
-      },
-      {
-        id: 4,
-        title: 'Course #4',
-        description: 'Course description #4',
-        creationDate: new Date('August 13 2019'),
-        durationInMinutes: 45,
-        authors: new Set<Author>([{
-          id: 4,
-          firstName: 'Author',
-          lastName: 'Four'
-        }]),
-        topRated: false
-      }
-    ];
+  constructor(private http: HttpClient) { }
+
+  getList() {
+    return this.http.get<CourseListItem[]>('http://localhost:3004/courses');
   }
 
-  getList(): Observable<CourseListItem[]> {
-    return of(this.courseList);
-  }
-
-  createCourse(courseListItem: CourseListItem): void {
-    this.courseList.unshift(courseListItem);
+  createCourse(courseListItem: CourseListItem) {
+    return this.http.post<CourseListItem>('http://localhost:3004/courses', courseListItem);
   }
 
   getCourseNameById(id: number): string {
@@ -94,13 +30,8 @@ export class CoursesService {
     return '';
   }
 
-  getCourseById(id: number): CourseListItem {
-    for (const course of this.courseList) {
-      if (course.id === id) {
-        return course;
-      }
-    }
-    return null;
+  getCourseById(id: number): Observable<CourseListItem> {
+    return this.http.get<CourseListItem>(`http://localhost:3004/courses/${id}`);
   }
 
   updateItem(courseListItem: CourseListItem): void {
@@ -116,8 +47,8 @@ export class CoursesService {
     }
   }
 
-  removeItem(courseListItem: CourseListItem): void {
-    this.courseList = this.courseList.filter(c => c.id !== courseListItem.id);
+  removeItem(id: number) {
+    return this.http.delete<any>(`http://localhost:3004/courses/${id}`);
   }
 
 }

@@ -21,13 +21,17 @@ export class CourseDetailsComponent implements OnInit {
 
   private tempAuthors: Set<Author> = null;
 
-  constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       this.header = 'Edit Course';
       const id = Number(this.activatedRoute.snapshot.url);
-      this.course = this.coursesService.getCourseById(id);
+      this.coursesService.getCourseById(id).subscribe(course => {
+        this.course = course;
+        console.log(this.course);
+      });
     } else {
       this.course = {
         id: Number(new Date()),
@@ -93,7 +97,9 @@ export class CourseDetailsComponent implements OnInit {
           lastName: 'One'
         }]);
       }
-      this.coursesService.createCourse(this.course);
+      this.coursesService.createCourse(this.course).subscribe((response) => {
+        console.log(response);
+      });
     }
     this.router.navigate(['/courses']);
   }

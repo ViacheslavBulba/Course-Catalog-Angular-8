@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { CourseListModule } from './course-list/course-list.module';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './login/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,12 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     LayoutModule,
     CourseListModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

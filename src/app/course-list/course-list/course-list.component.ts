@@ -12,7 +12,7 @@ import { ModalService } from '../../modal/services/modal.service';
 })
 export class CourseListComponent implements OnInit, OnChanges {
 
-  public courseList: CourseListItem[];
+  public courseList: CourseListItem[] = [];
 
   public courseToDelete: CourseListItem;
 
@@ -38,9 +38,9 @@ export class CourseListComponent implements OnInit, OnChanges {
   }
 
   deleteCourse() {
-    this.coursesService.removeItem(this.courseToDelete);
-    console.log('Course has been deleted: course id ' + this.courseToDelete.id);
-    this.getList();
+    this.coursesService.removeItem((this.courseToDelete.id)).subscribe(response => {
+      this.getList();
+    });
   }
 
   onSearch(search: string) {

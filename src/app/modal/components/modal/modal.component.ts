@@ -46,9 +46,4 @@ export class ModalComponent implements OnInit, OnDestroy {
     document.body.classList.remove('modal-open');
   }
 
-  deleteCourse(courseListItem: CourseListItem) {
-    console.log('calling delete course from modal component');
-    this.coursesService.removeItem(courseListItem);
-  }
-
 }
