@@ -21,14 +21,16 @@ export class CoursesService {
     return this.http.post<CourseListItem>('http://localhost:3004/courses', courseListItem);
   }
 
-  getCourseNameById(id: number): string {
-    for (const course of this.courseList) {
-      if (course.id === id) {
-        return course.title;
-      }
-    }
-    return '';
-  }
+  // async getCourseNameById(id: number): Promise<string> {
+  //   // for (const course of this.courseList) {
+  //   //   if (course.id === id) {
+  //   //     return course.title;
+  //   //   }
+  //   // }
+  //   // return '';
+  //   const result = await this.http.get<CourseListItem>(`http://localhost:3004/courses/${id}`).toPromise();
+  //   return result.title;
+  // }
 
   getCourseById(id: number): Observable<CourseListItem> {
     return this.http.get<CourseListItem>(`http://localhost:3004/courses/${id}`);
