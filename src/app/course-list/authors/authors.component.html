@@ -1,9 +1,16 @@
-<div class="input-container-half">
+<div class="input-container-half" *ngIf="authors$ | async as authors">
   <div class="input-labels">
     <div class="label">Authors:</div>
     <div class="required">*required</div>
   </div>
-  <ng-select [items]="authors" bindLabel="value" bindValue="value" [addTag]="addCustomUser" [multiple]="true"
-    [(ngModel)]="selectedAuthors" placeholder="Add authors, start typing..." (change)="emitOutput()">
-  </ng-select>
+  <ng-select
+    [items]="authors"
+    bindLabel="value"
+    bindValue="value"
+    [addTag]="addCustomUser"
+    [multiple]="true"
+    [(ngModel)]="selectedAuthors"
+    placeholder="Add authors, start typing..."
+    (change)="emitOutput($event)"
+  > </ng-select>
 </div>
