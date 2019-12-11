@@ -1,38 +1,53 @@
-import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 import { Author } from '../../models/author.model';
+
 @Component(
   {
     selector: 'app-authors',
     templateUrl: './authors.component.html',
     styleUrls: ['./authors.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
   })
-export class AuthorsComponent implements OnInit {
+export class AuthorsComponent implements OnChanges {
 
   @Input() public incomingAuthors: Set<Author>;
   @Output() public authorsOutput = new EventEmitter<Set<Author>>();
 
-  authors = [];
-  selectedAuthors: string[] = [];
+  public authors$ = new BehaviorSubject<Author[]>(null);
+  public selectedAuthors: string[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  public ngOnChanges() {
     this.getIncomingAuthors();
   }
 
-  getIncomingAuthors() {
-    if (this.incomingAuthors != null) {
-      for (const author of this.incomingAuthors.values()) {
-        this.authors.push({ id: author.id, value: `${author.firstName} ${author.lastName}` });
-        this.selectedAuthors.push(`${author.firstName} ${author.lastName}`);
-      }
+  private getIncomingAuthors() {
+    if (this.incomingAuthors === null) {
+      return;
     }
+
+    const authors = [];
+    for (const author of this.incomingAuthors.values()) {
+      authors.push({ id: author.id, value: `${author.firstName} ${author.lastName}` });
+      this.selectedAuthors.push(`${author.firstName} ${author.lastName}`);
+    }
+
+    this.authors$.next(authors);
   }
 
-  addCustomUser = (newCustomValue: any) => ({ id: newCustomValue, value: newCustomValue });
+  public addCustomUser = (newCustomValue: any) => ({ id: newCustomValue, value: newCustomValue });
 
-  emitOutput() {
+  public emitOutput(event) {
     const authorsToSend = new Set<Author>();
     for (const fullName of this.selectedAuthors) {
       const names: string[] = fullName.split(' ');
