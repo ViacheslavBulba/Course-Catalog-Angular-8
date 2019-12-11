@@ -4,7 +4,6 @@
 
 1. npm install
 2. npm run start
-3. start your ui
 
 ## CORS
 
@@ -15,33 +14,16 @@ To using all endpoints except [/auth/login](#post-authlogin) you should pass `Au
 ### Course model
 
 ```
-{
-    id: number;
-    name: string;
-    date: string;
-    length: number;
-    description: string;
-    authors: AUTHOR_MODEL;
-    isTopRated: boolean;
-},
 ```
 
 ### Author model
 
 ```
-{
-    id: number;
-    name: string;
-}
 ```
 
 ### Login Request Model
 
 ```
-{
-    login: string;
-    password: string;
-}
 ```
 
 ### Token Request Model
@@ -55,22 +37,11 @@ To using all endpoints except [/auth/login](#post-authlogin) you should pass `Au
 ### User Model
 
 ```
-{
-    id: number;
-    token: string,
-    name: NAME_MODEL;
-    login: string;
-    password: string;
-}
 ```
 
 ### Name Model
 
 ```
-{
-    firstName: string;
-    lastName: string;
-}
 ```
 
 These endpoints allow you to deal with the mock db.
@@ -214,7 +185,7 @@ Example: `courses/1`
 ```
 ___
 
-#### PATCH /courses
+#### PATCH /courses/$id
 
 This endpoint use for change appropriate course.
 
