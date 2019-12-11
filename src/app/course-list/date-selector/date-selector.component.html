@@ -1,8 +1,9 @@
-<div class="input-container-quarter">
+<div class="input-container-quarter" *ngIf="date$ | async as date">
   <div class="input-labels">
     <div class="label">Date:</div>
     <div class="required">*required</div>
   </div>
-  <ejs-datepicker id='datepicker' placeholder='mm-dd-yyyy' [(value)]='date' format='MM-dd-yyyy' (change)="emitOutput()">
+  <ejs-datepicker id='datepicker' placeholder='mm-dd-yyyy' [value]="date | date : 'MM-dd-yyyy'" (value)="saveDate($event)" format='MM-dd-yyyy'
+    (change)="emitOutput($event)">
   </ejs-datepicker>
 </div>

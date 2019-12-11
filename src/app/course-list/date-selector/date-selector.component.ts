@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-date-selector',
@@ -6,17 +7,28 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter
   styleUrls: ['./date-selector.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DateSelectorComponent implements OnInit {
+export class DateSelectorComponent implements OnChanges {
 
-  @Input() public date: Date;
+  public date$ = new BehaviorSubject<Date>(null);
+
+  public date: Date = null;
+
+  @Input() public dateInput: Date;
   @Output() public dateOutput = new EventEmitter<Date>();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
+    this.date = this.dateInput;
+    this.date$.next(this.date);
   }
 
-  emitOutput() {
+  saveDate(date: Date) {
+    console.log(date);
+    this.date = date;
+  }
+
+  public emitOutput(event) {
     this.dateOutput.emit(this.date);
   }
 
