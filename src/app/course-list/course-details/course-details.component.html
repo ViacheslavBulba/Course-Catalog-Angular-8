@@ -19,7 +19,7 @@
     </div>
     <app-duration [durationInMinutes]="course.durationInMinutes" (durationOutput)="saveDurationOutput($event)">
     </app-duration>
-    <app-date-selector [dateInput]="course.creationDate" (dateOutput)="saveDateOutput($event)"></app-date-selector>
+    <app-date-selector [date]="course.creationDate" (dateOutput)="saveDateOutput($event)"></app-date-selector>
     <app-authors [incomingAuthors]="course.authors" (authorsOutput)="saveAuthorsOutput($event)"></app-authors>
     <div class="buttons-box">
       <button class="decline-button" (click)="onCancel()">Cancel</button>
