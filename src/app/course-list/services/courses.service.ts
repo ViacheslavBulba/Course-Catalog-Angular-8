@@ -21,32 +21,14 @@ export class CoursesService {
     return this.http.post<CourseListItem>('http://localhost:3004/courses', courseListItem);
   }
 
-  // async getCourseNameById(id: number): Promise<string> {
-  //   // for (const course of this.courseList) {
-  //   //   if (course.id === id) {
-  //   //     return course.title;
-  //   //   }
-  //   // }
-  //   // return '';
-  //   const result = await this.http.get<CourseListItem>(`http://localhost:3004/courses/${id}`).toPromise();
-  //   return result.title;
-  // }
-
   getCourseById(id: number): Observable<CourseListItem> {
     return this.http.get<CourseListItem>(`http://localhost:3004/courses/${id}`);
   }
 
-  updateItem(courseListItem: CourseListItem): void {
-    for (const course of this.courseList) {
-      if (course.id === courseListItem.id) {
-        course.title = courseListItem.title;
-        course.description = courseListItem.description;
-        course.creationDate = courseListItem.creationDate;
-        course.durationInMinutes = courseListItem.durationInMinutes;
-        course.authors = courseListItem.authors;
-        course.topRated = courseListItem.topRated;
-      }
-    }
+  updateCourse(course: CourseListItem) {
+    console.log('course to patch:');
+    console.log(course);
+    return this.http.patch<CourseListItem>(`http://localhost:3004/courses/${course.id}`, course);
   }
 
   removeItem(id: number) {

@@ -49,6 +49,8 @@ export class CourseDetailsComponent implements OnInit {
     this.coursesService
       .getCourseById(id)
       .subscribe(course => {
+        console.log('course from backend:');
+        console.log(course);
         this.course$.next(course);
       });
   }
@@ -83,7 +85,14 @@ export class CourseDetailsComponent implements OnInit {
 
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
-      this.coursesService.updateItem(course);
+      console.log(course);
+      this.coursesService
+        .updateCourse(course)
+        .subscribe((response) => {
+          console.log('response from backend for update');
+          console.log(response);
+          this.router.navigate(['/courses']);
+        });
     } else {
       console.log('create new course');
       if (course.title === '') {

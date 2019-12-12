@@ -3,6 +3,11 @@
     <div class="label">Date:</div>
     <div class="required">*required</div>
   </div>
-  <ejs-datepicker id='datepicker' placeholder='mm-dd-yyyy' [(value)]='date' format='MM-dd-yyyy' (change)="emitOutput()">
+  <ejs-datepicker
+    id='datepicker'
+    placeholder='mm-dd-yyyy'
+    [value]="date | date : 'MM-dd-yyyy'"
+    format='MM-dd-yyyy'
+    (change)="emitOutput($event)">
   </ejs-datepicker>
 </div>
