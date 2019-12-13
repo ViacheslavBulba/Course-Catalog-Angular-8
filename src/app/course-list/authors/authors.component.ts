@@ -21,8 +21,8 @@ import { Author } from '../../models/author.model';
   })
 export class AuthorsComponent implements OnChanges {
 
-  @Input() public incomingAuthors: Set<Author>;
-  @Output() public authorsOutput = new EventEmitter<Set<Author>>();
+  @Input() public incomingAuthors: Author[];
+  @Output() public authorsOutput = new EventEmitter<Author[]>();
 
   public authors$ = new BehaviorSubject<Author[]>(null);
   public selectedAuthors: string[] = [];
@@ -47,8 +47,8 @@ export class AuthorsComponent implements OnChanges {
 
   public addCustomUser = (newCustomValue: any) => ({ id: newCustomValue, value: newCustomValue });
 
-  public emitOutput(event) {
-    const authorsToSend = new Set<Author>();
+  public emitOutput() {
+    const authorsToSend: Author[] = [];
     for (const fullName of this.selectedAuthors) {
       const names: string[] = fullName.split(' ');
       let author: Author;
@@ -76,7 +76,7 @@ export class AuthorsComponent implements OnChanges {
           };
         }
       }
-      authorsToSend.add(author);
+      authorsToSend.push(author);
     }
     this.authorsOutput.emit(authorsToSend);
   }

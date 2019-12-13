@@ -23,11 +23,11 @@ class TestHostComponent {
     description: 'Course description #1',
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
-    authors: new Set<Author>([{
+    authors: [{
       id: 33,
       firstName: 'Slava',
       lastName: 'Bulba'
-    }]),
+    }],
     topRated: true
   };
 
@@ -64,11 +64,11 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: true
     };
     testHostComponent.courseInput = testCourse;
@@ -88,11 +88,11 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: true
     };
     testHostComponent.courseInput = testCourse;
@@ -112,11 +112,11 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: true
     };
     testHostComponent.courseInput = testCourse;
@@ -136,11 +136,11 @@ describe('CoursePlateBoxShadowColorDirective', () => {
       description: 'Course description #1',
       creationDate: new Date(newDate),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: true
     };
     testHostComponent.courseInput = testCourse;

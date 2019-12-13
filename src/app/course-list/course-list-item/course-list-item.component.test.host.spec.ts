@@ -21,11 +21,11 @@ class TestHostComponent {
     description: 'Course description #1',
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
-    authors: new Set<Author>([{
+    authors: [{
       id: 33,
       firstName: 'Slava',
       lastName: 'Bulba'
-    }]),
+    }],
     topRated: true
   };
   courseToDelete: CourseListItem;
@@ -63,11 +63,11 @@ describe('CourseListItemComponent via test host', () => {
       description: 'Course description #1',
       creationDate: new Date('October 11 2019'),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: true
     };
     testHostComponent.courseInput = testCourse1;
@@ -79,11 +79,11 @@ describe('CourseListItemComponent via test host', () => {
       description: 'Course description #1',
       creationDate: new Date('October 11 2019'),
       durationInMinutes: 90,
-      authors: new Set<Author>([{
+      authors: [{
         id: 33,
         firstName: 'Slava',
         lastName: 'Bulba'
-      }]),
+      }],
       topRated: false
     };
     testHostComponent.courseInput = testCourse2;

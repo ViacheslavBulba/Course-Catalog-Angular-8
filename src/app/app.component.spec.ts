@@ -14,6 +14,7 @@ import { MinutesToHoursWithMinutesPipe } from './course-list/pipes/minutes-to-ho
 import { OrderByPipe } from './course-list/pipes/order-by.pipe';
 import { CoursePlateBoxShadowColorDirective } from './course-list/directives/course-plate-box-shadow-color.directive';
 import { ModalComponent } from './modal/components/modal/modal.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -22,7 +23,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule, FormsModule
+        RouterTestingModule, FormsModule, HttpClientModule
       ],
       declarations: [
         AppComponent,

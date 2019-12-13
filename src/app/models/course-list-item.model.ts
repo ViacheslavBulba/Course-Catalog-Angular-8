@@ -6,6 +6,6 @@ export interface CourseListItem {
   description: string;
   creationDate: Date;
   durationInMinutes: number;
-  authors: Set<Author>;
+  authors: Author[];
   topRated: boolean;
 }

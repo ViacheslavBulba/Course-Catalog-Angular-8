@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -8,9 +9,12 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      imports: [
+        HttpClientTestingModule
+      ],
+      declarations: [ModalComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -11,6 +11,7 @@ import { By } from '@angular/platform-browser';
 import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
 import { ModalComponent } from '../../modal/components/modal/modal.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -18,7 +19,7 @@ describe('CourseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterModule.forRoot([])],
+      imports: [FormsModule, RouterModule.forRoot([]), HttpClientTestingModule],
       declarations: [CourseListComponent, SearchComponent, AddCourseComponent, CourseListItemComponent, LoadMoreComponent, MinutesToHoursWithMinutesPipe, OrderByPipe, CoursePlateBoxShadowColorDirective, ModalComponent]
     })
       .compileComponents();
@@ -34,16 +35,23 @@ describe('CourseListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('course list should not be empty', () => {
-    expect(component.courseList[0]).not.toBeUndefined();
-  });
-
   it('should show no data message if course list is empty', () => {
-    const courseListToRestore = component.courseList;
     component.courseList = [];
     fixture.detectChanges();
     expect(fixture.debugElement.query(By.css('.no-data'))).not.toBeNull();
-    component.courseList = courseListToRestore;
+    component.courseList = [{
+      id: 55,
+      title: 'Video course #1',
+      description: 'Course description #1',
+      creationDate: new Date('October 11 2019'),
+      durationInMinutes: 90,
+      authors: [{
+        id: 1,
+        firstName: 'Slava',
+        lastName: 'Bulba'
+      }],
+      topRated: true
+    }];
     fixture.detectChanges();
     expect(fixture.debugElement.query(By.css('.no-data'))).toBeNull();
   });

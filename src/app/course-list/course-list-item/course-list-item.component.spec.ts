@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MinutesToHoursWithMinutesPipe } from '../pipes/minutes-to-hours-with-minutes.pipe';
 import { CourseListItemComponent } from './course-list-item.component';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { Author } from '../../models/author.model';
 import { By } from '@angular/platform-browser';
 import { CoursePlateBoxShadowColorDirective } from '../directives/course-plate-box-shadow-color.directive';
 import { RouterModule } from '@angular/router';
@@ -10,19 +9,17 @@ import { RouterModule } from '@angular/router';
 describe('CourseListItemComponent', () => {
   let component: CourseListItemComponent;
   let fixture: ComponentFixture<CourseListItemComponent>;
-  const simpleAuthor: Author = {
-    id: 1,
-    firstName: 'Slava',
-    lastName: 'Bulba'
-  };
-  const simpleAuthorSet = new Set<Author>();
   const courseInput: CourseListItem = {
     id: 55,
     title: 'Video course #1',
     description: 'Course description #1',
     creationDate: new Date('October 11 2019'),
     durationInMinutes: 90,
-    authors: simpleAuthorSet,
+    authors: [{
+      id: 1,
+      firstName: 'Slava',
+      lastName: 'Bulba'
+    }],
     topRated: true
   };
 
@@ -35,7 +32,6 @@ describe('CourseListItemComponent', () => {
   }));
 
   beforeEach(() => {
-    simpleAuthorSet.add(simpleAuthor);
     fixture = TestBed.createComponent(CourseListItemComponent);
     component = fixture.componentInstance;
     component.courseInput = courseInput;

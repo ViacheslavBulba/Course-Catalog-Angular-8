@@ -1,3 +1,17 @@
+# Home Task 8 (Http)
+
+Run the backend first
+
+`cd backend`
+
+`npm run start`
+
+Then run the app
+
+`ng serve --aot --open`
+
+# Home Task 7 (Routing)
+
 # Home Task 6 (Change Detection)
 
 **1. Added ChangeDetectionStrategy.OnPush for course-list-item component**

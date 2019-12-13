@@ -8,6 +8,7 @@ import { AuthorsComponent } from '../authors/authors.component';
 import { DateSelectorComponent } from '../date-selector/date-selector.component';
 import { DurationComponent } from '../duration/duration.component';
 import { CourseDetailsComponent } from './course-details.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;
@@ -20,12 +21,13 @@ describe('CourseDetailsComponent', () => {
         RouterModule.forRoot([]),
         DatePickerModule,
         NgSelectModule,
+        HttpClientTestingModule
       ],
       declarations: [
         CourseDetailsComponent,
         DateSelectorComponent,
         DurationComponent,
-        AuthorsComponent,
+        AuthorsComponent
       ],
       providers: [
         { provide: ActivatedRoute, useValue: { snapshot: { url: 'new' } } },

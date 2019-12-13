@@ -30,7 +30,7 @@ export class CourseDetailsComponent implements OnInit {
 
   private tempDate: Date = null;
 
-  private tempAuthors: Set<Author> = null;
+  private tempAuthors: Author[] = null;
 
   constructor(
     private router: Router,
@@ -67,7 +67,7 @@ export class CourseDetailsComponent implements OnInit {
     this.tempDate = date;
   }
 
-  saveAuthorsOutput(users: Set<Author>) {
+  saveAuthorsOutput(users: Author[]) {
     this.tempAuthors = users;
   }
 
@@ -84,8 +84,13 @@ export class CourseDetailsComponent implements OnInit {
     }
 
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
-      console.log('edit existing course');
+      console.log('edit existing course - save was clicked');
       console.log(course);
+      console.log('json version');
+      console.log(JSON.stringify(course));
+
+
+
       this.coursesService
         .updateCourse(course)
         .subscribe((response) => {
@@ -108,11 +113,11 @@ export class CourseDetailsComponent implements OnInit {
         course.durationInMinutes = 60;
       }
       if (course.authors === null) {
-        course.authors = new Set<Author>([{
+        course.authors = [{
           id: 999,
           firstName: 'Auto',
           lastName: 'One'
-        }]);
+        }];
       }
       this.coursesService
         .createCourse(course)
