@@ -12,10 +12,7 @@ describe('AuthorsComponent', () => {
       declarations: [
         AuthorsComponent,
       ],
-      imports: [
-        FormsModule,
-        NgSelectModule,
-      ]
+      imports: [FormsModule, NgSelectModule]
     })
       .compileComponents();
   }));

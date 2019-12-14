@@ -1,6 +1,14 @@
-<div class="course-container" appCoursePlateBoxShadowColor [date]="courseInput.creationDate" [ngClass]="isTopRated()">
+<div
+  class="course-container"
+  appCoursePlateBoxShadowColor
+  [date]="courseInput.creationDate"
+  [ngClass]="isTopRated()"
+>
   <div class=" title-duration-date-container">
-    <div class="course-name">{{ courseInput.title | uppercase }} <i class="fa fa-star" *ngIf="courseInput.topRated"></i>
+    <div class="course-name">{{ courseInput.title | uppercase }} <i
+        class="fa fa-star"
+        *ngIf="courseInput.topRated"
+      ></i>
     </div>
     <div class="duration-date-box">
       <div class="duration">
@@ -14,10 +22,17 @@
     <div class="description">{{ courseInput.description }}</div>
     <div class="edit-delete-box">
       <div class="edit">
-        <button class="edit-delete-button" (click)="onEdit()"><i class="fa fa-edit"></i>Edit</button>
+        <button
+          class="edit-delete-button"
+          (click)="onEdit()"
+        ><i class="fa fa-edit"></i>Edit</button>
       </div>
       <div class="delete">
-        <button class="edit-delete-button" (click)="onDelete()" (click)="openModal('delete-course-modal')"><i class=" fa
+        <button
+          class="edit-delete-button"
+          (click)="onDelete()"
+          (click)="openModal('delete-course-modal')"
+        ><i class=" fa
           fa-trash"></i>Delete</button>
       </div>
     </div>

@@ -1,8 +1,21 @@
 <div class="search-container">
   <div class="search-input-box">
-    <img src="assets/img/search-icon.svg" alt="search icon" class="search-icon">
-    <input type="text" placeholder="Text to search" [(ngModel)]="searchString" class="search-input"
-      (keyup.enter)="onSearch()">
+    <img
+      src="assets/img/search-icon.svg"
+      alt="search icon"
+      class="search-icon"
+    >
+    <input
+      type="text"
+      placeholder="Text to search"
+      [(ngModel)]="searchString"
+      class="search-input"
+      (keyup.enter)="onSearch()"
+    >
   </div>
-  <button type="submit" class="search-button" (click)="onSearch()">Search</button>
+  <button
+    type="submit"
+    class="search-button"
+    (click)="onSearch()"
+  >Search</button>
 </div>

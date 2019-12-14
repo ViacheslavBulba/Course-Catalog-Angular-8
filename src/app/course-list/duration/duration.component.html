@@ -3,6 +3,11 @@
     <div class="label">Duration:</div>
     <div class="required">*required</div>
   </div>
-  <input type="text" placeholder="Enter in minutes" class="input" [(ngModel)]="durationInMinutes"
-    (keyup)="emitOutput()">
+  <input
+    type="text"
+    placeholder="Enter in minutes"
+    class="input"
+    [(ngModel)]="durationInMinutes"
+    (keyup)="emitOutput()"
+  >
 </div>
