@@ -45,10 +45,12 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   onSearch(search: string) {
     if (search === '') {
-      this.getList();
+      this.getList(); // to restore the list if search string is cleared
       return;
     }
-    this.courseList = this.filter.transform(this.courseList, search);
+    this.coursesService.searchCourses(search).subscribe(courses => {
+      this.courseList = courses;
+    });
   }
 
   closeModal(id: string) {
