@@ -10,12 +10,7 @@
       placeholder="Text to search"
       [(ngModel)]="searchString"
       class="search-input"
-      (keyup.enter)="onSearch()"
+      (keyup)="onSearch()"
     >
   </div>
-  <button
-    type="submit"
-    class="search-button"
-    (click)="onSearch()"
-  >Search</button>
 </div>

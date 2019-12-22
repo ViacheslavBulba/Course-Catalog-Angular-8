@@ -48,6 +48,9 @@ export class CourseListComponent implements OnInit, OnChanges {
       this.getList(); // to restore the list if search string is cleared
       return;
     }
+    if (search.length < 3) { // to restore the list if search string is cleared
+      return;
+    }
     this.coursesService.searchCourses(search).subscribe(courses => {
       this.courseList = courses;
     });
