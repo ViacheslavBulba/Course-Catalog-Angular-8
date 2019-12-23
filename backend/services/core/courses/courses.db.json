@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": 1,
-      "title": "Video course #1",
+      "title": "Java",
       "description": "Video course #1 description",
       "creationDate": "Tue Dec 01 2020 00:00:00 GMT-0600 (Central Standard Time)",
       "durationInMinutes": 120,
@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "title": "Video course #2",
+      "title": "Scala",
       "description": "Video course #2 description",
       "creationDate": "Tue Aug 13 2019 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 30,
@@ -37,7 +37,7 @@
     },
     {
       "id": 4,
-      "title": "Video course #4",
+      "title": "JavaScript",
       "description": "Video course #4 description",
       "creationDate": "Sun Oct 13 2018 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 65,
@@ -51,9 +51,24 @@
       "topRated": false
     },
     {
+      "id": 5,
+      "title": "TypeScript",
+      "description": "TypeScript course description",
+      "creationDate": "Sun Oct 13 2018 00:00:00 GMT-0500 (Central Daylight Time)",
+      "durationInMinutes": 13,
+      "authors": [
+        {
+          "id": 1,
+          "firstName": "Slava",
+          "lastName": "Bulba"
+        }
+      ],
+      "topRated": false
+    },
+    {
       "id": 3,
-      "title": "Video course #3",
-      "description": "Video course #3 description",
+      "title": "name with spaces",
+      "description": "ddddddddddddddddddddd",
       "creationDate": "Tue Sep 03 2019 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 125,
       "authors": [

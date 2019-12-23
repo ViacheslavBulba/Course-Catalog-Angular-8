@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CourseListItem } from '../../models/course-list-item.model';
-import { Author } from '../../models/author.model';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -33,6 +32,10 @@ export class CoursesService {
 
   removeItem(id: number) {
     return this.http.delete<any>(`http://localhost:3004/courses/${id}`);
+  }
+
+  searchCourses(textToSearch: string): Observable<CourseListItem[]> {
+    return this.http.get<CourseListItem[]>(`http://localhost:3004/courses?textFragment=${textToSearch}`);
   }
 
 }
