@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import { debounceTime } from 'rxjs/operators';
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -7,17 +10,22 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  searchString = '';
+  private currentSearchStringSubject: BehaviorSubject<string>;
 
   @Output() public searchRequest = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+    this.currentSearchStringSubject = new BehaviorSubject<string>('');
+    this.currentSearchStringSubject.asObservable().pipe(
+      debounceTime(500)
+    ).subscribe(x => this.searchRequest.emit(x));
+  }
 
   ngOnInit() {
   }
 
-  onSearch() {
-    this.searchRequest.emit(this.searchString);
+  public onSearchType(value: string) {
+    this.currentSearchStringSubject.next(value);
   }
 
 }
