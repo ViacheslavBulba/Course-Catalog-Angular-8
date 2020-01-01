@@ -43,10 +43,6 @@ export class AuthorizationService {
     console.log('Logged out');
   }
 
-  // public get getUserInfo(): User {
-  //   return this.fakeUser;
-  // }
-
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
