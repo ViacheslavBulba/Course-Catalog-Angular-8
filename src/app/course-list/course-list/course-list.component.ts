@@ -1,62 +1,75 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { CourseListItem } from '../../models/course-list-item.model';
-import { FilterPipe } from '../pipes/filter.pipe';
-import { CoursesService } from '../services/courses.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+
 import { ModalService } from '../../modal/services/modal.service';
+import { CourseListItem } from '../../models/course-list-item.model';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css'],
-  providers: [FilterPipe]
 })
-export class CourseListComponent implements OnInit, OnChanges {
+export class CourseListComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject();
 
   public courseList: CourseListItem[] = [];
 
   public courseToDelete: CourseListItem;
 
-  constructor(private coursesService: CoursesService, private filter: FilterPipe, private modalService: ModalService) {
+  constructor(
+    private coursesService: CoursesService,
+    private modalService: ModalService,
+  ) {
   }
 
-  getList() {
-    this.coursesService.getList().subscribe(courses => {
-      this.courseList = courses;
-    });
+  private getList() {
+    this.coursesService.getList()
+      .pipe(
+        take(1),
+      ).subscribe(courses => {
+        this.courseList = courses;
+      });
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.getList();
   }
 
-  ngOnChanges() {
+  public ngOnDestroy() {
+    this.destroy$.next();
   }
 
-  saveCourseToBeDeleted(item: CourseListItem) {
+  public saveCourseToBeDeleted(item: CourseListItem) {
     this.courseToDelete = item;
     console.log('Course marked as to be deleted: course id ' + this.courseToDelete.id);
   }
 
-  deleteCourse() {
-    this.coursesService.removeItem((this.courseToDelete.id)).subscribe(response => {
-      this.getList();
-    });
+  public deleteCourse() {
+    this.coursesService.removeItem((this.courseToDelete.id))
+      .pipe(
+        take(1),
+      ).subscribe(() => {
+        this.getList();
+      });
   }
 
-  onSearch(search: string) {
-    if (search === '') {
+  public onSearch(search: string) {
+    if (!search) {
       this.getList(); // to restore the list if search string is cleared
       return;
     }
-    if (search.length < 3) { // to restore the list if search string is cleared
-      return;
-    }
-    this.coursesService.searchCourses(search).subscribe(courses => {
-      this.courseList = courses;
-    });
+    this.coursesService.searchCourses(search)
+      .pipe(
+        takeUntil(this.destroy$),
+      )
+      .subscribe(courses => {
+        this.courseList = courses;
+      });
   }
 
-  closeModal(id: string) {
+  public closeModal(id: string) {
     this.modalService.close(id);
   }
 
