@@ -1,12 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
+import { appReducer } from './app.state';
 import { CourseListModule } from './course-list/course-list.module';
-import { LoginModule } from './login/login.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LayoutModule } from './layout/layout.module';
 import { JwtInterceptor } from './login/jwt.interceptor';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +22,19 @@ import { JwtInterceptor } from './login/jwt.interceptor';
     LayoutModule,
     CourseListModule,
     LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([]),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }

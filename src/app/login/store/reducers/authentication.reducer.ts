@@ -1,17 +1,23 @@
-import { User } from '../../../models/user.model';
-import { AuthenticationActionTypes, AuthenticationActions } from '../actions/authentication.actions';
+import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
-export interface State {
+import { AppState } from '../../../app.state';
+import { AuthenticationActions, AuthenticationActionTypes } from '../actions/authentication.actions';
+
+interface AuthenticationCombinedState {
+  authentication: AuthenticationState;
+}
+
+interface AuthenticationState extends AppState {
   isAuthenticated: boolean;
   errorMessage: string | null;
 }
 
-export const initialState: State = {
+const initialState: AuthenticationState = {
   isAuthenticated: localStorage.getItem('currentUser') !== null,
   errorMessage: null
 };
 
-export function reducer(state = initialState, action: AuthenticationActions): State {
+function authenticationReducer(state = initialState, action: AuthenticationActions): AuthenticationState {
   switch (action.type) {
     case AuthenticationActionTypes.LOGIN_SUCCESS: {
       return {
@@ -35,3 +41,9 @@ export function reducer(state = initialState, action: AuthenticationActions): St
     }
   }
 }
+
+export const reducers: ActionReducerMap<AuthenticationCombinedState> = {
+  authentication: authenticationReducer,
+};
+
+export const selectAuthenticationState = createFeatureSelector<AuthenticationState>('authentication');

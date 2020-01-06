@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { map, switchMap, catchError, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { AuthorizationService } from '../../../login/services/authorization.service';
-import {
-  AuthenticationActionTypes,
-  Login, LoginSuccess, LoginFailure, Logout
-} from '../actions/authentication.actions';
-
+import { AuthenticationActionTypes, Login, LoginFailure, LoginSuccess, Logout } from '../actions/authentication.actions';
 
 @Injectable()
 export class AuthenticationEffects {
@@ -34,13 +29,13 @@ export class AuthenticationEffects {
               return new LoginSuccess({ token: user.token, username: payload.username });
             }),
             catchError((error) => {
-              return of(new LoginFailure({ error: error }));
+              return of(new LoginFailure({ error }));
             }));
       }));
 
 
   @Effect({ dispatch: false })
-  LoginSuccess: Observable<any> = this.actions.pipe(
+  LoginSuccess = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGIN_SUCCESS),
     tap((user) => {
       this.router.navigateByUrl('/');
@@ -48,12 +43,12 @@ export class AuthenticationEffects {
   );
 
   @Effect({ dispatch: false })
-  LoginFailure: Observable<any> = this.actions.pipe(
+  LoginFailure = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGIN_FAILURE)
   );
 
   @Effect({ dispatch: false })
-  public Logout: Observable<any> = this.actions.pipe(
+  public Logout = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGOUT),
     tap((user) => {
       localStorage.removeItem('currentUser');
