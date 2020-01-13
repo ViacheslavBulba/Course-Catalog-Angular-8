@@ -19,7 +19,8 @@
 
 .header {
   padding-left: 23px;
-  padding-top: 24px;
+  /* padding-top: 24px; */
+  padding-top: 12px;
   padding-bottom: 24px;
   width: 58px;
   height: 30px;
@@ -120,5 +121,9 @@
   font-style: normal;
   line-height: 2.57;
   letter-spacing: -0.1px;
-  color: #a8a9b4;
+  color: #161618;
+}
+
+.invalid {
+  border-color: #fc1e01;
 }

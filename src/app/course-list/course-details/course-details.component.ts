@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author.model';
 import { CourseListItem } from 'src/app/models/course-list-item.model';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
@@ -13,6 +13,9 @@ import { CoursesService } from '../services/courses.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseDetailsComponent implements OnInit {
+
+  courseForm: FormGroup;
+  submitted = false;
 
   public header = 'New Course';
 
@@ -35,10 +38,21 @@ export class CourseDetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private coursesService: CoursesService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {
   }
 
   ngOnInit() {
+
+    this.courseForm = this.formBuilder.group({
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      duration: [null, [Validators.required]],
+      date: [null, [Validators.required]],
+      authors: [null, [Validators.required]],
+    });
+
     if (this.activatedRoute.snapshot.url.toString() === 'new') {
       return;
     }
@@ -69,6 +83,14 @@ export class CourseDetailsComponent implements OnInit {
 
   saveAuthorsOutput(users: Author[]) {
     this.tempAuthors = users;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.courseForm.invalid) {
+      return;
+    }
+    // this.onSave(this.course$.);
   }
 
   onSave(course: CourseListItem) {
