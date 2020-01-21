@@ -21,7 +21,7 @@
   padding-left: 23px;
   padding-top: 24px;
   padding-bottom: 24px;
-  width: 58px;
+  width: auto;
   height: 30px;
   font-family: 'Source Sans Pro';
   font-size: 24px;
@@ -109,7 +109,7 @@
 }
 
 .login-button {
-  width: 68px;
+  width: auto;
   height: 36px;
   border-radius: 3px;
   background-color: #d9dbe3;
@@ -121,4 +121,6 @@
   line-height: 2.57;
   letter-spacing: -0.1px;
   color: #a8a9b4;
+  padding-left: 20px;
+  padding-right: 20px;
 }

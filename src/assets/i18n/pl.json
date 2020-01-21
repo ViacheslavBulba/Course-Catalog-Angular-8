@@ -1,0 +1,22 @@
+{
+  "courses": {
+    "courses": "Kursy",
+    "add": "Dodaj kurs",
+    "search": "Tekst do wyszukiwania, wpisz min 3 znaki ...",
+    "edit": "Edytować",
+    "delete": "Usunąć",
+    "more": "Załaduj więcej"
+  },
+  "user": {
+    "logout": "Wyloguj",
+    "username": "Nazwa Użytkownika"
+  },
+  "system": {
+    "login": "Zaloguj sie",
+    "required": "*wymagany",
+    "password": "Hasło",
+    "forgot": "Zapomniałeś hasła?",
+    "email-placeholder": "Wprowadź e-mail",
+    "password-placeholder": "Wprowadź hasło"
+  }
+}

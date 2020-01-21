@@ -29,7 +29,8 @@
   word-break: break-word;
 }
 
-.duration, .date {
+.duration,
+.date {
   font-family: 'Source Sans Pro';
   font-size: 12px;
   color: #b9bdce;
@@ -38,7 +39,8 @@
   text-align: center;
 }
 
-.duration i, .date i {
+.duration i,
+.date i {
   padding-right: 5px;
 }
 
@@ -66,7 +68,7 @@
 
 .edit-delete-button {
   padding: 0;
-  width: 75px;
+  width: auto;
   height: 24px;
   border-radius: 3px;
   font-family: 'Source Sans Pro';
@@ -74,13 +76,16 @@
   font-weight: 600;
   color: #ffffff;
   background-color: #30b6dd;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .edit-delete-button i {
   padding-right: 6px;
 }
 
-.edit-delete-box, .duration-date-box {
+.edit-delete-box,
+.duration-date-box {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -98,7 +103,9 @@
 /* 768px - ipad width for example */
 
 @media screen and (max-width: 768px) {
-  .edit-delete-box, .duration-date-box {
+
+  .edit-delete-box,
+  .duration-date-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -106,18 +113,26 @@
     padding-right: 0;
     padding-left: 10px;
   }
-  .edit, .duration {
+
+  .edit,
+  .duration {
     padding-right: 0;
     padding-bottom: 12px;
   }
-  .description, .course-name {
+
+  .description,
+  .course-name {
     width: 100%;
     text-align: left;
   }
-  .description-edit-delete-container, .title-duration-date-container {
+
+  .description-edit-delete-container,
+  .title-duration-date-container {
     justify-content: flex-end;
   }
-  .duration, .date {
+
+  .duration,
+  .date {
     text-align: left;
   }
 }

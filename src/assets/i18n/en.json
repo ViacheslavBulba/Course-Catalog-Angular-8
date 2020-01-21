@@ -1,0 +1,22 @@
+{
+  "courses": {
+    "courses": "Courses",
+    "add": "Add course",
+    "search": "Text to search, type min 3 characters...",
+    "edit": "Edit",
+    "delete": "Delete",
+    "more": "Load More"
+  },
+  "user": {
+    "logout": "Log off",
+    "username": "User name"
+  },
+  "system": {
+    "login": "Login",
+    "required": "*required",
+    "password": "Password",
+    "forgot": "Forgot password?",
+    "email-placeholder": "Enter e-mail",
+    "password-placeholder": "Enter password"
+  }
+}

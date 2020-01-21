@@ -1,27 +1,27 @@
 <div class="login-container">
   <div class="login-box">
     <font color="red">To access app login as test/test</font>
-    <div class="header">Login</div>
+    <div class="header">{{ 'system.login' | translate }}</div>
     <div class="input-container">
       <div class="input-labels">
         <div class="label">E-mail:</div>
-        <div class="required">*required</div>
+        <div class="required">{{ 'system.required' | translate }}</div>
       </div>
       <input
         type="text"
-        placeholder="Enter e-mail"
+        placeholder="{{ 'system.email-placeholder' | translate }}"
         class="login-input"
         [(ngModel)]="username"
       >
     </div>
     <div class="input-container">
       <div class="input-labels">
-        <div class="label">Password:</div>
-        <div class="required">*required</div>
+        <div class="label">{{ 'system.password' | translate }}:</div>
+        <div class="required">{{ 'system.required' | translate }}</div>
       </div>
       <input
         type="password"
-        placeholder="Enter password"
+        placeholder="{{ 'system.password-placeholder' | translate }}"
         class="login-input"
         [(ngModel)]="password"
         (keyup.enter)="onLogin()"
@@ -31,11 +31,11 @@
       <a
         class="forgot-password"
         href="/login"
-      >Forgot password?</a>
+      >{{ 'system.forgot' | translate }}</a>
       <button
         class="login-button"
         (click)="onLogin()"
-      >Login</button>
+      >{{ 'system.login' | translate }}</button>
     </div>
   </div>
 </div>

@@ -71,3 +71,24 @@
   text-decoration: underline;
   background-color: #515258;
 }
+
+.language-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 6vw;
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  color: #ffffff;
+}
+
+label {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+select {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+}
