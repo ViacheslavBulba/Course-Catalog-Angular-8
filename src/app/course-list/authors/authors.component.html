@@ -1,9 +1,24 @@
-<div class="input-container-half">
+<div
+  class="input-container-half"
+  [formGroup]="authorsGroup"
+>
   <div class="input-labels">
     <div class="label">Authors:</div>
+    <span
+      *ngIf="authors.errors"
+      class="error"
+    >Required</span>
     <div class="required">*required</div>
   </div>
-  <ng-select [items]="authors" bindLabel="value" bindValue="value" [addTag]="addCustomUser" [multiple]="true"
-    [(ngModel)]="selectedAuthors" placeholder="Add authors, start typing..." (change)="emitOutput()">
+  <ng-select
+    [items]="authorsToShow"
+    bindLabel="value"
+    bindValue="value"
+    [addTag]="addCustomUser"
+    [multiple]="true"
+    placeholder="Add authors, start typing..."
+    (change)="emitOutput()"
+    formControlName="authors"
+  >
   </ng-select>
 </div>

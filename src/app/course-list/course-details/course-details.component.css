@@ -169,3 +169,14 @@
   padding-left: 18px;
   padding-right: 18px;
 }
+
+.error {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #FF0000;
+}

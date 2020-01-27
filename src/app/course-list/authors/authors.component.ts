@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { Author } from '../../models/author.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component(
   {
     selector: 'app-authors',
@@ -9,22 +10,27 @@ import { Author } from '../../models/author.model';
   })
 export class AuthorsComponent implements OnInit {
 
+  authorsGroup: FormGroup;
+
   @Input() public incomingAuthors: Set<Author>;
   @Output() public authorsOutput = new EventEmitter<Set<Author>>();
 
-  authors = [];
+  authorsToShow = [];
   selectedAuthors: string[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.authorsGroup = new FormGroup({
+      authors: new FormControl(this.selectedAuthors, [Validators.required])
+    });
     this.getIncomingAuthors();
   }
 
   getIncomingAuthors() {
     if (this.incomingAuthors != null) {
       for (const author of this.incomingAuthors.values()) {
-        this.authors.push({ id: author.id, value: `${author.firstName} ${author.lastName}` });
+        this.authorsToShow.push({ id: author.id, value: `${author.firstName} ${author.lastName}` });
         this.selectedAuthors.push(`${author.firstName} ${author.lastName}`);
       }
     }
@@ -64,6 +70,10 @@ export class AuthorsComponent implements OnInit {
       authorsToSend.add(author);
     }
     this.authorsOutput.emit(authorsToSend);
+  }
+
+  get authors() {
+    return this.authorsGroup.get('authors');
   }
 
 }

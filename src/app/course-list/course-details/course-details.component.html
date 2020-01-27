@@ -1,27 +1,67 @@
 <div class="course-details-container">
-  <div class="course-details-box">
-    <div class="header">{{ header }}</div>
-    <div class="input-container">
-      <div class="input-labels">
-        <div class="label">Title:</div>
-        <div class="required">*required</div>
+  <form
+    [formGroup]="courseForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="course-details-box">
+      <div class="header">{{ header }}</div>
+      <div class="input-container">
+        <div class="input-labels">
+          <div class="label">Title:</div>
+          <span
+            *ngIf="title.errors"
+            class="error"
+          >Required, Max length 50 symbols</span>
+          <div class="required">*required</div>
+        </div>
+        <input
+          type="text"
+          placeholder="Add title"
+          class="input"
+          formControlName="title"
+        >
       </div>
-      <input type="text" placeholder="Add title" class="input" [(ngModel)]="course.title">
-    </div>
-    <div class="input-container">
-      <div class="input-labels">
-        <div class="label">Description:</div>
-        <div class="required">*required</div>
+      <div class="input-container">
+        <div class="input-labels">
+          <div class="label">Description:</div>
+          <span
+            *ngIf="description.errors"
+            class="error"
+          >Required, Max length 500 symbols</span>
+          <div class="required">*required</div>
+        </div>
+        <textarea
+          type="text"
+          placeholder="Add description"
+          class="text-area"
+          formControlName="description"
+        ></textarea>
       </div>
-      <textarea type="text" placeholder="Add description" class="text-area" [(ngModel)]="course.description"></textarea>
+      <app-duration
+        [durationInMinutes]="course?.durationInMinutes"
+        (durationOutput)="saveDurationOutput($event)"
+      >
+      </app-duration>
+      <app-date-selector
+        [dateInput]="course?.creationDate"
+        (dateOutput)="saveDateOutput($event)"
+      ></app-date-selector>
+      <app-authors
+        [incomingAuthors]="course?.authors"
+        (authorsOutput)="saveAuthorsOutput($event)"
+      ></app-authors>
+      <div class="buttons-box">
+        <button
+          type="button"
+          class="decline-button"
+          (click)="onCancel()"
+        >Cancel</button>
+        <button
+          type="submit"
+          class="agree-button"
+          [disabled]="!courseForm.valid"
+        >Save</button>
+      </div>
     </div>
-    <app-duration [durationInMinutes]="course?.durationInMinutes" (durationOutput)="saveDurationOutput($event)">
-    </app-duration>
-    <app-date-selector [date]="course?.creationDate" (dateOutput)="saveDateOutput($event)"></app-date-selector>
-    <app-authors [incomingAuthors]="course?.authors" (authorsOutput)="saveAuthorsOutput($event)"></app-authors>
-    <div class="buttons-box">
-      <button class="decline-button" (click)="onCancel()">Cancel</button>
-      <button class="agree-button" (click)="onSave()">Save</button>
-    </div>
-  </div>
+  </form>
 </div>

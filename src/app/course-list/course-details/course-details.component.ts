@@ -3,6 +3,7 @@ import { CourseListItem } from 'src/app/models/course-list-item.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Author } from 'src/app/models/author.model';
 import { CoursesService } from '../services/courses.service';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-course-details',
@@ -10,6 +11,9 @@ import { CoursesService } from '../services/courses.service';
   styleUrls: ['./course-details.component.css']
 })
 export class CourseDetailsComponent implements OnInit {
+
+  courseForm: FormGroup;
+  submitted = false;
 
   header = 'New Course';
 
@@ -21,13 +25,34 @@ export class CourseDetailsComponent implements OnInit {
 
   private tempAuthors: Set<Author> = null;
 
-  constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private coursesService: CoursesService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.courseForm = new FormGroup({
+      title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+
+      durationGroup: new FormGroup({
+        duration: new FormControl('', [Validators.required])
+      }),
+      dateGroup: new FormGroup({
+        date: new FormControl('', [Validators.required])
+      }),
+      authorsGroup: new FormGroup({
+        authors: new FormControl('', [Validators.required])
+      })
+    });
+
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       this.header = 'Edit Course';
       const id = Number(this.activatedRoute.snapshot.url);
       this.course = this.coursesService.getCourseById(id);
+      this.courseForm.controls['title'].setValue(this.course.title);
+      this.courseForm.controls['description'].setValue(this.course.description);
+      this.courseForm.get('durationGroup.duration').setValue(this.course.durationInMinutes);
+      this.courseForm.get('dateGroup.date').setValue(this.course.creationDate);
+      this.courseForm.get('authorsGroup.authors').setValue(this.course.authors);
     } else {
       this.course = {
         id: Number(new Date()),
@@ -58,19 +83,15 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   onSave() {
-
-    if (this.tempDuration !== null) {
-      this.course.durationInMinutes = this.tempDuration;
-    }
-    if (this.tempDate !== null) {
-      this.course.creationDate = this.tempDate;
-    }
-    if (this.tempAuthors !== null) {
-      this.course.authors = this.tempAuthors;
-    }
-
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
       console.log('edit existing course');
+
+      this.course.title = this.courseForm.controls['title'].value;
+      this.course.description = this.courseForm.controls['description'].value;
+      this.course.durationInMinutes = this.courseForm.get('durationGroup.duration').value;
+      this.course.creationDate = this.courseForm.get('dateGroup.date').value;
+      this.course.authors = this.courseForm.get('authorsGroup.authors').value;
+
       this.coursesService.updateItem(this.course);
     } else {
       console.log('create new course');
@@ -96,6 +117,23 @@ export class CourseDetailsComponent implements OnInit {
       this.coursesService.createCourse(this.course);
     }
     this.router.navigate(['/courses']);
+  }
+
+  onSubmit() {
+    console.log(this.courseForm.value);
+    this.submitted = true;
+    if (this.courseForm.invalid) {
+      return;
+    }
+    this.onSave();
+  }
+
+  get title() {
+    return this.courseForm.get('title');
+  }
+
+  get description() {
+    return this.courseForm.get('description');
   }
 
 }

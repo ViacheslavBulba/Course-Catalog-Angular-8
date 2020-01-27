@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-date-selector',
@@ -8,16 +9,25 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter
 })
 export class DateSelectorComponent implements OnInit {
 
-  @Input() public date: Date;
+  dateGroup: FormGroup;
+
+  @Input() public dateInput: Date;
   @Output() public dateOutput = new EventEmitter<Date>();
 
   constructor() { }
 
   ngOnInit() {
+    this.dateGroup = new FormGroup({
+      date: new FormControl(this.dateInput, [Validators.required])
+    });
   }
 
   emitOutput() {
-    this.dateOutput.emit(this.date);
+    this.dateOutput.emit(this.dateInput);
+  }
+
+  get date() {
+    return this.dateGroup.get('date');
   }
 
 }

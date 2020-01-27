@@ -1,8 +1,22 @@
-<div class="input-container-quarter">
+<div
+  class="input-container-quarter"
+  [formGroup]="dateGroup"
+>
   <div class="input-labels">
     <div class="label">Date:</div>
+    <span
+      *ngIf="date.errors"
+      class="error"
+    >Required</span>
     <div class="required">*required</div>
   </div>
-  <ejs-datepicker id='datepicker' placeholder='mm-dd-yyyy' [(value)]='date' format='MM-dd-yyyy' (change)="emitOutput()">
+  <ejs-datepicker
+    id='datepicker'
+    placeholder='mm-dd-yyyy'
+    [(value)]='dateInput'
+    format='MM-dd-yyyy'
+    (change)="emitOutput()"
+    formControlName="date"
+  >
   </ejs-datepicker>
 </div>

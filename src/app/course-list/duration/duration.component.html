@@ -1,8 +1,20 @@
-<div class="input-container-quarter">
+<div
+  class="input-container-quarter"
+  [formGroup]="durationGroup"
+>
   <div class="input-labels">
     <div class="label">Duration:</div>
+    <span
+      *ngIf="duration.errors"
+      class="error"
+    >Required</span>
     <div class="required">*required</div>
   </div>
-  <input type="text" placeholder="Enter in minutes" class="input" [(ngModel)]="durationInMinutes"
-    (keyup)="emitOutput()">
+  <input
+    type="text"
+    placeholder="Enter in minutes"
+    class="input"
+    (keyup)="emitOutput()"
+    formControlName="duration"
+  >
 </div>

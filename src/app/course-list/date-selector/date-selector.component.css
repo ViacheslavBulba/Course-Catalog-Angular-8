@@ -3,6 +3,7 @@
 @import url('https://cdn.syncfusion.com/ej2/ej2-inputs/styles/material.css');
 @import url('https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css');
 @import url('https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css');
+
 .input-labels {
   display: flex;
   flex-direction: row;
@@ -74,4 +75,15 @@
 .e-input-group-icon.e-date-icon.e-icons {
   height: 34px;
   width: 34px;
+}
+
+.error {
+  font-family: 'Source Sans Pro';
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #FF0000;
 }
