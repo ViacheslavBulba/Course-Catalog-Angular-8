@@ -10,10 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   })
 export class AuthorsComponent implements OnInit {
 
-  authorsGroup: FormGroup;
-
   @Input() public incomingAuthors: Set<Author>;
   @Output() public authorsOutput = new EventEmitter<Set<Author>>();
+  @Input() parentForm: FormGroup;
 
   authorsToShow = [];
   selectedAuthors: string[] = [];
@@ -21,10 +20,8 @@ export class AuthorsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.authorsGroup = new FormGroup({
-      authors: new FormControl(this.selectedAuthors, [Validators.required])
-    });
     this.getIncomingAuthors();
+    this.parentForm.controls['authors'].setValue(this.selectedAuthors);
   }
 
   getIncomingAuthors() {
@@ -73,7 +70,7 @@ export class AuthorsComponent implements OnInit {
   }
 
   get authors() {
-    return this.authorsGroup.get('authors');
+    return this.parentForm.get('authors');
   }
 
 }

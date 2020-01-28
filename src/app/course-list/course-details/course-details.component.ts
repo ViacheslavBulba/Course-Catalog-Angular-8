@@ -32,16 +32,9 @@ export class CourseDetailsComponent implements OnInit {
     this.courseForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
-
-      durationGroup: new FormGroup({
-        duration: new FormControl('', [Validators.required])
-      }),
-      dateGroup: new FormGroup({
-        date: new FormControl('', [Validators.required])
-      }),
-      authorsGroup: new FormGroup({
-        authors: new FormControl('', [Validators.required])
-      })
+      duration: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      authors: new FormControl('', [Validators.required])
     });
 
     if (this.activatedRoute.snapshot.url.toString() !== 'new') {
@@ -50,9 +43,8 @@ export class CourseDetailsComponent implements OnInit {
       this.course = this.coursesService.getCourseById(id);
       this.courseForm.controls['title'].setValue(this.course.title);
       this.courseForm.controls['description'].setValue(this.course.description);
-      this.courseForm.get('durationGroup.duration').setValue(this.course.durationInMinutes);
-      this.courseForm.get('dateGroup.date').setValue(this.course.creationDate);
-      this.courseForm.get('authorsGroup.authors').setValue(this.course.authors);
+      this.courseForm.controls['duration'].setValue(this.course.durationInMinutes);
+      this.courseForm.controls['date'].setValue(this.course.creationDate);
     } else {
       this.course = {
         id: Number(new Date()),
@@ -88,25 +80,18 @@ export class CourseDetailsComponent implements OnInit {
 
       this.course.title = this.courseForm.controls['title'].value;
       this.course.description = this.courseForm.controls['description'].value;
-      this.course.durationInMinutes = this.courseForm.get('durationGroup.duration').value;
-      this.course.creationDate = this.courseForm.get('dateGroup.date').value;
-      this.course.authors = this.courseForm.get('authorsGroup.authors').value;
+      this.course.durationInMinutes = this.courseForm.get('duration').value;
+      this.course.creationDate = this.courseForm.get('date').value;
+      // this.course.authors = this.courseForm.get('authors').value;
 
       this.coursesService.updateItem(this.course);
     } else {
       console.log('create new course');
-      if (this.course.title === '') {
-        this.course.title = String(new Date());
-      }
-      if (this.course.description === '') {
-        this.course.description = 'Test course description';
-      }
-      if (this.course.creationDate === null) {
-        this.course.creationDate = new Date();
-      }
-      if (this.course.durationInMinutes === null) {
-        this.course.durationInMinutes = 60;
-      }
+      this.course.title = this.courseForm.controls['title'].value;
+      this.course.description = this.courseForm.controls['description'].value;
+      this.course.durationInMinutes = this.courseForm.get('duration').value;
+      this.course.creationDate = this.courseForm.get('date').value;
+
       if (this.course.authors === null) {
         this.course.authors = new Set<Author>([{
           id: 999,

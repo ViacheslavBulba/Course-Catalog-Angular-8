@@ -9,17 +9,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class DateSelectorComponent implements OnInit {
 
-  dateGroup: FormGroup;
-
   @Input() public dateInput: Date;
   @Output() public dateOutput = new EventEmitter<Date>();
+  @Input() parentForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.dateGroup = new FormGroup({
-      date: new FormControl(this.dateInput, [Validators.required])
-    });
   }
 
   emitOutput() {
@@ -27,7 +23,7 @@ export class DateSelectorComponent implements OnInit {
   }
 
   get date() {
-    return this.dateGroup.get('date');
+    return this.parentForm.get('date');
   }
 
 }

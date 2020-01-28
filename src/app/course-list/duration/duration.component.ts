@@ -9,17 +9,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class DurationComponent implements OnInit {
 
-  durationGroup: FormGroup;
-
   @Input() public durationInMinutes: number;
   @Output() public durationOutput = new EventEmitter<number>();
+  @Input() parentForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.durationGroup = new FormGroup({
-      duration: new FormControl(this.durationInMinutes, [Validators.required])
-    });
   }
 
   emitOutput() {
@@ -27,7 +23,7 @@ export class DurationComponent implements OnInit {
   }
 
   get duration() {
-    return this.durationGroup.get('duration');
+    return this.parentForm.get('duration');
   }
 
 }
