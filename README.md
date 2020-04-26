@@ -1,14 +1,16 @@
-# Home Task 8 (Http)
+# How to run the app
 
-Run the backend first
+Run the backend first:
 
 `cd backend`
 
 `npm run start`
 
-Then run the app
+Then run the frontend from the root:
 
 `ng serve --aot --open`
+
+# Home Task 8 (Http)
 
 # Home Task 7 (Routing)
 
@@ -17,7 +19,7 @@ Then run the app
 **1. Added ChangeDetectionStrategy.OnPush for course-list-item component**
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush
+changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 **2. AOT**
@@ -70,7 +72,7 @@ Then run the app
 
 **1. Added custom pipe to change course plate border based on creationDate. If creationDate < today && creationDate >= today - 14 days - fresh course - green border. If creationDate > today - upcoming course - blue border.**
 
-**2. Added no data message `<span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>`**
+**2. Added no data message `<span class="no-data" *ngIf="courseList.length === 0">NO DATA. FEEL FREE TO ADD A NEW COURSE.</span>`**
 
 **3. Added topRated field to the course item. If true - show star icon, change background color to light yellow.**
 
@@ -189,11 +191,11 @@ There is a minor issue with search component responsiveness on small screen, wil
 
 **2. Added sticky footer**
 
-Simple sticky footer solution through min-height: calc(100vh - 3*64px); 
+Simple sticky footer solution through min-height: calc(100vh - 3\*64px);
 
 **3. Added transform pipes for duration and date values**
 
-Added pipes for duration and date {{ courseInput.creationDate | date : 'd MMM, y' }} 
+Added pipes for duration and date {{ courseInput.creationDate | date : 'd MMM, y' }}
 
 `ng g p course-list/pipes/MinutesToHoursWithMinutes`
 
@@ -228,9 +230,9 @@ Create new file app.routes.ts
 
 `export const ROUTES: Route[] = [`
 
-`  { path: '', redirectTo: 'courses', pathMatch: 'full' },`
+`{ path: '', redirectTo: 'courses', pathMatch: 'full' },`
 
-`  { path: 'courses', component: CourseListComponent }`
+`{ path: 'courses', component: CourseListComponent }`
 
 `];`
 
@@ -242,21 +244,21 @@ Add imports in app.module.ts
 
 `@NgModule({`
 
-`  declarations: [`
+`declarations: [`
 
-`    AppComponent`
+`AppComponent`
 
-`  ],`
+`],`
 
-`  imports: [`
+`imports: [`
 
-`    RouterModule.forRoot(ROUTES)`
+`RouterModule.forRoot(ROUTES)`
 
-`  ],`
+`],`
 
-`  providers: [],`
+`providers: [],`
 
-`  bootstrap: [AppComponent]`
+`bootstrap: [AppComponent]`
 
 `})`
 

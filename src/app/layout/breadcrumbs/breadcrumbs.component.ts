@@ -37,20 +37,13 @@ export class BreadcrumbsComponent implements OnInit {
     if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart.split(':')[1];
       path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
-
-      this.coursesService.getCourseById(Number(route.snapshot.params[paramName])).subscribe(course => {
-        label = course.title;
-        console.log(label);
-      });
-
+      label = route.snapshot.params[paramName];
     }
     const nextUrl = path ? `${url}/${path}` : url;
-
     const breadcrumb: Breadcrumbs = {
       label,
       url: nextUrl
     };
-
     const newBreadcrumbs = breadcrumb.label
       ? [...breadcrumbs, breadcrumb]
       : [...breadcrumbs];

@@ -20,7 +20,6 @@ export class CourseListItemComponent implements OnInit {
   }
 
   onEdit() {
-    console.log('Edit course id ' + this.courseInput.id);
     this.router.navigate(['/courses', this.courseInput.id]);
   }
 

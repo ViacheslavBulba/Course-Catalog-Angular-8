@@ -14,7 +14,6 @@ export class AddCourseComponent implements OnInit {
   }
 
   onAddCourse() {
-    console.log('Add Course button was clicked');
     this.router.navigate(['courses/new']);
   }
 
