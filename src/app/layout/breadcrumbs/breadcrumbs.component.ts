@@ -1,27 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Breadcrumbs } from './breadcrumbs.model';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter, distinctUntilChanged } from 'rxjs/operators';
 import { CoursesService } from 'src/app/course-list/services/courses.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.css']
+  styleUrls: ['./breadcrumbs.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  public breadcrumbs: Breadcrumbs[];
+  // public breadcrumbs: Breadcrumbs[];
+  // public breadcrumbs = new BehaviorSubject<Breadcrumbs[]>(null);
+  public breadcrumbsBS = new BehaviorSubject<Breadcrumbs[]>(null);
+  public breadcrumbsO: Observable<Breadcrumbs[]>;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private coursesService: CoursesService) {
-    this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+    // this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+    // this.breadcrumbs.next(this.buildBreadCrumb(this.activatedRoute.root));
+
+    // this.breadcrumbs$.next(this.buildBreadCrumb(this.activatedRoute.root));
+    this.breadcrumbsBS.next(this.buildBreadCrumb(this.activatedRoute.root));
+    this.breadcrumbsO = this.breadcrumbsBS.asObservable();
   }
 
   ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd), distinctUntilChanged())
       .subscribe(() => {
-        this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+        // this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+        this.breadcrumbsBS.next(this.buildBreadCrumb(this.activatedRoute.root));
       });
   }
 
@@ -37,8 +48,22 @@ export class BreadcrumbsComponent implements OnInit {
     if (isDynamicRoute && !!route.snapshot) {
       const paramName = lastRoutePart.split(':')[1];
       path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
-      label = route.snapshot.params[paramName];
+      this.coursesService.getCourseById(Number(route.snapshot.params[paramName])).subscribe(course => {
+        label = course.title;
+        console.log('dynamic course title is: ' + label);
+        const nextUrl2 = path ? `${url}/${path}` : url;
+        const breadcrumb2: Breadcrumbs = {
+          label,
+          url: nextUrl2
+        };
+        const newBreadcrumbs2 = breadcrumb2.label
+          ? [...breadcrumbs, breadcrumb2]
+          : [...breadcrumbs];
+        this.breadcrumbsBS.next(newBreadcrumbs2);
+
+      });
     }
+
     const nextUrl = path ? `${url}/${path}` : url;
     const breadcrumb: Breadcrumbs = {
       label,
