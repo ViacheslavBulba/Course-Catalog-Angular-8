@@ -13,31 +13,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  // public breadcrumbs: Breadcrumbs[];
-  // public breadcrumbs = new BehaviorSubject<Breadcrumbs[]>(null);
-  public breadcrumbsBS = new BehaviorSubject<Breadcrumbs[]>(null);
-  public breadcrumbsO: Observable<Breadcrumbs[]>;
+  public breadcrumbs$ = new BehaviorSubject<Breadcrumbs[]>(null);
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private coursesService: CoursesService) {
-    // this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
-    // this.breadcrumbs.next(this.buildBreadCrumb(this.activatedRoute.root));
-
-    // this.breadcrumbs$.next(this.buildBreadCrumb(this.activatedRoute.root));
-    this.breadcrumbsBS.next(this.buildBreadCrumb(this.activatedRoute.root));
-    this.breadcrumbsO = this.breadcrumbsBS.asObservable();
+    this.breadcrumbs$.next(this.buildBreadcrumbs(this.activatedRoute.root));
   }
 
   ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd), distinctUntilChanged())
       .subscribe(() => {
-        // this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
-        this.breadcrumbsBS.next(this.buildBreadCrumb(this.activatedRoute.root));
+        this.breadcrumbs$.next(this.buildBreadcrumbs(this.activatedRoute.root));
       });
   }
 
-  buildBreadCrumb(route: ActivatedRoute, url = '', breadcrumbs: Breadcrumbs[] = []): Breadcrumbs[] {
-    let label =
+  buildBreadcrumbs(route: ActivatedRoute, url = '', breadcrumbs: Breadcrumbs[] = []): Breadcrumbs[] {
+    let textForBreadcrumb =
       route.routeConfig && route.routeConfig.data
         ? route.routeConfig.data.breadcrumb
         : '';
@@ -49,31 +40,25 @@ export class BreadcrumbsComponent implements OnInit {
       const paramName = lastRoutePart.split(':')[1];
       path = path.replace(lastRoutePart, route.snapshot.params[paramName]);
       this.coursesService.getCourseById(Number(route.snapshot.params[paramName])).subscribe(course => {
-        label = course.title;
-        console.log('dynamic course title is: ' + label);
-        const nextUrl2 = path ? `${url}/${path}` : url;
-        const breadcrumb2: Breadcrumbs = {
-          label,
-          url: nextUrl2
+        textForBreadcrumb = course.title;
+        const urlForDynamicBreadcrumb = path ? `${url}/${path}` : url;
+        const dynamicBreadcrumb: Breadcrumbs = {
+          label: textForBreadcrumb,
+          url: urlForDynamicBreadcrumb
         };
-        const newBreadcrumbs2 = breadcrumb2.label
-          ? [...breadcrumbs, breadcrumb2]
-          : [...breadcrumbs];
-        this.breadcrumbsBS.next(newBreadcrumbs2);
-
+        this.breadcrumbs$.next([...breadcrumbs, dynamicBreadcrumb]);
       });
     }
-
-    const nextUrl = path ? `${url}/${path}` : url;
+    const urlForBreadcrumb = path ? `${url}/${path}` : url;
     const breadcrumb: Breadcrumbs = {
-      label,
-      url: nextUrl
+      label: textForBreadcrumb,
+      url: urlForBreadcrumb
     };
     const newBreadcrumbs = breadcrumb.label
       ? [...breadcrumbs, breadcrumb]
       : [...breadcrumbs];
     if (route.firstChild) {
-      return this.buildBreadCrumb(route.firstChild, nextUrl, newBreadcrumbs);
+      return this.buildBreadcrumbs(route.firstChild, urlForBreadcrumb, newBreadcrumbs);
     }
     return newBreadcrumbs;
   }
