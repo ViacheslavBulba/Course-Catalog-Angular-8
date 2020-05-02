@@ -1,20 +1,24 @@
 # How to run the project
 
 1. Download and install NodeJS with NPM from https://nodejs.org/en/
-2. Install Angular CLI with the command `npm install -g @angular/cli`
+2. Install Angular CLI with the command
+
+`npm install -g @angular/cli`
+
 3. Download or clone the project source code
-4. Install all required npm packages by running `npm install` from the command line in the project root folder
+4. Install all required npm packages (dependencies) by running from the command line in the project root folder
+
+`npm install`
+
 5. Run the backend from the project root in a separate terminal window:
 
 `cd backend`
 
 `npm run start`
 
-6. Run the frontend from the project root in a separate terminal window:
+6. Run the frontend from the project root in a separate terminal window (it will open the project in your default browser automatically):
 
 `ng serve --aot --open`
-
-It will open the project in your default browser automatically.
 
 # Implemented Features
 
