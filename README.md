@@ -1,14 +1,21 @@
-# How to run the app
+# How to run the project
 
-Run the backend first:
+1. Download and install NodeJS with NPM from https://nodejs.org/en/
+2. Install Angular CLI with the command `npm install -g @angular/cli`
+3. Download or clone the project source code
+4. Install all required npm packages by running `npm install` from the command line in the project root folder
+5. Run the backend from the project root in a separate terminal window:
+   `cd backend`
+   `npm run start`
+6. Run the frontend from the project root in a separate terminal window:
+   `ng serve --aot --open`
+   It will open the project in your default browser automatically.
 
-`cd backend`
+# Implemented Features
 
-`npm run start`
-
-Then run the frontend from the root:
-
-`ng serve --aot --open`
+1. Login form (use test/test credentials to login)
+2. Auth guard
+3. Async breadcrumbs
 
 # Home Task 8 (Http)
 
@@ -267,16 +274,6 @@ Add imports in app.module.ts
 **7. Assigned fake values on ngOnInit hook**
 
 # Home Task 1
-
-This project was generated with Angular CLI version 8.3.4.
-
-## How to run the project locally
-
-1. Download and install NodeJS (it comes with NPM) from https://nodejs.org/en/
-2. Download or clone the project source code
-3. Install all required npm packages by running npm install from the command line in the project root folder (where the package.json is located).
-4. Install the Angular CLI globally on your system with the command `npm install -g @angular/cli`.
-5. Start the application by running `ng serve --open` from the command line in the project root folder. It will open the project in your browser automatically.
 
 ## Steps performed
 
