@@ -5,11 +5,16 @@
 3. Download or clone the project source code
 4. Install all required npm packages by running `npm install` from the command line in the project root folder
 5. Run the backend from the project root in a separate terminal window:
-   `cd backend`
-   `npm run start`
+
+`cd backend`
+
+`npm run start`
+
 6. Run the frontend from the project root in a separate terminal window:
-   `ng serve --aot --open`
-   It will open the project in your default browser automatically.
+
+`ng serve --aot --open`
+
+It will open the project in your default browser automatically.
 
 # Implemented Features
 
