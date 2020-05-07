@@ -327,3 +327,11 @@ Add imports in app.module.ts
 **6. Revealed components to app.component.html**
 
 **7. Added showing on the page video courses titles from component data**
+
+# Login error message
+
+ng generate component login/error-messages --skipTests=true
+
+ng generate service login/services/error-messages --skipTests=true
+
+ng generate class login/models/error-message --skipTests=true

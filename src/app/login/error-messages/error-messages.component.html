@@ -1,0 +1,18 @@
+<div
+  *ngFor="let message of errorMessages"
+  class="{{cssClass(message)}}"
+>
+  <div class="error-messages-box">
+    <span
+      class="error-message"
+      [innerHTML]="message.message"
+    ></span>
+    <input
+      class="close"
+      type="image"
+      src="assets/img/close.svg"
+      alt="close"
+      (click)="removeMessage(message)"
+    />
+  </div>
+</div>
