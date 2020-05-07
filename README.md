@@ -20,9 +20,11 @@
 
 `ng serve --aot --open`
 
+7. Use `test/test` credentials to login
+
 # Implemented Features
 
-1. Login form (use test/test credentials to login)
+1. Login page
 2. Auth guard
 3. Async breadcrumbs
 
