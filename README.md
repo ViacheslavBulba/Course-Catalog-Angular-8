@@ -1,26 +1,28 @@
 # How to run the project
 
 1. Download and install NodeJS with NPM from https://nodejs.org/en/
-2. Install Angular CLI with the command
 
-`npm install -g @angular/cli`
+2. Download or clone the project source code
 
-3. Download or clone the project source code
-4. Install all required npm packages (dependencies) by running from the command line in the project root folder
+3. Install all required npm packages (dependencies) and run the backend in a separate terminal window:
+
+`cd ~/git/angular-mentoring-program/backend`
 
 `npm install`
 
-5. Run the backend from the project root in a separate terminal window:
-
-`cd backend`
-
 `npm run start`
 
-6. Run the frontend from the project root in a separate terminal window (it will open the project in your default browser automatically):
+4. Install all required npm packages (dependencies) and run the frontend in a separate terminal window (it will open the project in your default browser automatically):
+
+`cd ~/git/angular-mentoring-program`
+
+`npm install`
+
+`sudo npm install -g @angular/cli@8.3.9`
 
 `ng serve --aot --open`
 
-7. Use `test/test` credentials to login
+5. Use `test/test` credentials to login
 
 # Implemented Features
 
