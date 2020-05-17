@@ -72,6 +72,14 @@
   color: #6c7283;
 }
 
+.red-text {
+  color: #ff0000 !important;
+}
+
+.red-border {
+  border: solid 1px #ff0000 !important;
+}
+
 .login-input {
   width: 305px;
   height: 36px;

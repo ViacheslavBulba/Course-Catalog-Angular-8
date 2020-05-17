@@ -1,41 +1,58 @@
 <div class="login-container">
   <app-error-messages></app-error-messages>
   <div class="login-box">
+
     <div class="header">Login</div>
-    <div class="input-container">
-      <div class="input-labels">
-        <div class="label">E-mail:</div>
-        <div class="required">*required</div>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+
+      <div class="input-container">
+        <div class="input-labels">
+          <div class="label">E-mail:</div>
+          <div
+            class="required"
+            [ngClass]="{ 'red-text': submitted && f.username.errors }"
+          >*required</div>
+        </div>
+        <input
+          type="text"
+          placeholder="Enter e-mail"
+          class="login-input"
+          formControlName="username"
+          [ngClass]="{ 'red-border': submitted && f.username.errors }"
+        >
       </div>
-      <input
-        type="text"
-        placeholder="Enter e-mail"
-        class="login-input"
-        [(ngModel)]="username"
-      >
-    </div>
-    <div class="input-container">
-      <div class="input-labels">
-        <div class="label">Password:</div>
-        <div class="required">*required</div>
+
+      <div class="input-container">
+        <div class="input-labels">
+          <div class="label">Password:</div>
+          <div
+            class="required"
+            [ngClass]="{ 'red-text': submitted && f.password.errors }"
+          >*required</div>
+        </div>
+        <input
+          type="password"
+          placeholder="Enter password"
+          class="login-input"
+          (keyup.enter)="onSubmit()"
+          formControlName="password"
+          [ngClass]="{ 'red-border': submitted && f.password.errors }"
+        >
+
       </div>
-      <input
-        type="password"
-        placeholder="Enter password"
-        class="login-input"
-        [(ngModel)]="password"
-        (keyup.enter)="onLogin()"
-      >
-    </div>
-    <div class="controls">
-      <a
-        class="forgot-password"
-        href="/login"
-      >Forgot password?</a>
-      <button
-        class="login-button"
-        (click)="onLogin()"
-      >Login</button>
-    </div>
+      <div class="controls">
+        <a
+          class="forgot-password"
+          href="/login"
+        >Forgot password?</a>
+        <button class="login-button">Login</button>
+      </div>
+
+    </form>
+
   </div>
 </div>
