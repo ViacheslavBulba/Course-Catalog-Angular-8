@@ -13,8 +13,7 @@
         type="text"
         placeholder="Add title"
         class="input"
-        [ngModel]="course.title"
-        (ngModel)="course.title = $event"
+        [(ngModel)]="course.title"
       >
     </div>
     <div class="input-container">
@@ -26,8 +25,7 @@
         type="text"
         placeholder="Add description"
         class="text-area"
-        [ngModel]="course.description"
-        (ngModel)="course.description = $event"
+        [(ngModel)]="course.description"
       ></textarea>
     </div>
     <app-duration
