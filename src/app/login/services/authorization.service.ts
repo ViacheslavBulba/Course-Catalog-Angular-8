@@ -11,7 +11,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthorizationService {
 
   private isAuthenticated$ = new BehaviorSubject(false);
-
+  private authorized = false;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
@@ -30,7 +30,7 @@ export class AuthorizationService {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         this.isAuthenticated$.next(true);
-        console.log('Logged in successfully');
+        this.authorized = true;
         this.router.navigate(['/courses']);
         return user;
       }));
@@ -40,12 +40,25 @@ export class AuthorizationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.isAuthenticated$.next(false);
-    console.log('Logged out');
+    this.authorized = false;
   }
 
-  // public get getUserInfo(): User {
-  //   return this.fakeUser;
-  // }
+  getUserInfo() {
+
+    // if (this.authorized) {
+    const token = localStorage.getItem('currentUser');
+    return this.http.post<any>('http://localhost:3004/auth/userinfo', JSON.parse(token))
+      .pipe(map(user => {
+        console.log('getting user info from http://localhost:3004/auth/userinfo');
+
+        console.log(user);
+        console.log(user.firstName);
+        console.log(user.lastName);
+
+        return user;
+      }));
+    // }
+  }
 
   public get currentUserValue(): User {
     return this.currentUserSubject.value;

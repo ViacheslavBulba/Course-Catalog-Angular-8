@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Java",
-      "description": "Video course #1 description",
+      "description": "Java is a programming language and computing platform first released by Sun Microsystems in 1995. There are lots of applications and websites that will not work unless you have Java installed, and more are created every day. Java is fast, secure, and reliable. From laptops to datacenters, game consoles to scientific supercomputers, cell phones to the Internet, Java is everywhere!",
       "creationDate": "Tue Dec 01 2020 00:00:00 GMT-0600 (Central Standard Time)",
       "durationInMinutes": 120,
       "authors": [
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "title": "Scala",
-      "description": "Video course #2 description",
+      "description": "Scala combines object-oriented and functional programming in one concise, high-level language. Scala's static types help avoid bugs in complex applications, and its JVM and JavaScript runtimes let you build high-performance systems with easy access to huge ecosystems of libraries.",
       "creationDate": "Tue Aug 13 2019 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 30,
       "authors": [
@@ -38,7 +38,7 @@
     {
       "id": 4,
       "title": "JavaScript",
-      "description": "Video course #4 description",
+      "description": "JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.",
       "creationDate": "Sun Oct 13 2018 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 65,
       "authors": [
@@ -53,7 +53,7 @@
     {
       "id": 5,
       "title": "TypeScript",
-      "description": "TypeScript course description",
+      "description": "TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript.",
       "creationDate": "Sun Oct 13 2018 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 13,
       "authors": [
@@ -67,8 +67,8 @@
     },
     {
       "id": 3,
-      "title": "name with spaces",
-      "description": "ddddddddddddddddddddd",
+      "title": "Appium",
+      "description": "Appium is an open source automation tool for running scripts and testing native applications, mobile-web applications and hybrid applications on Android or iOS using a webdriver.",
       "creationDate": "Tue Sep 03 2019 00:00:00 GMT-0500 (Central Daylight Time)",
       "durationInMinutes": 125,
       "authors": [

@@ -51,6 +51,12 @@ export class LoginComponent implements OnInit {
           this.errorMessageService.error('Username or password is incorrect');
           this.loading = false;
         });
+    this.authorizationService.getUserInfo().pipe(first())
+      .subscribe(
+        data => { },
+        error => {
+          this.errorMessageService.error('error getting user info');
+        });
   }
 
 }

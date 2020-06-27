@@ -26,9 +26,10 @@
 
 # Implemented Features
 
-1. Login page
+1. Reactive Login Form with required fields validation and integration with simple backend
 2. Auth guard
 3. Async breadcrumbs
+4. Server side course search
 
 # Home Task 8 (Http)
 
