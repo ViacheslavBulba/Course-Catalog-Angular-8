@@ -23,9 +23,9 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render footer text © 2019 EPAM Systems, Inc. All Rights Reserved.', () => {
+  it('should render footer text © 2019 Viacheslav Bulba. All Rights Reserved.', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.footer-text').textContent).toBe('© 2019 EPAM Systems, Inc. All Rights Reserved.');
+    expect(compiled.querySelector('.footer-text').textContent).toBe('© 2019 Viacheslav Bulba. All Rights Reserved.');
   });
 
 });

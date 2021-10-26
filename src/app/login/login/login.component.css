@@ -10,7 +10,7 @@
 
 .login-box {
   width: 368px;
-  height: 306px;
+  height: 348px;
   border-radius: 6px;
   box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
   background-color: #ffffff;
@@ -76,6 +76,11 @@
   color: #ff0000 !important;
 }
 
+.blue-text {
+  color: #0000ff !important;
+  padding-bottom: 12px;
+}
+
 .red-border {
   border: solid 1px #ff0000 !important;
 }
@@ -99,7 +104,7 @@
 .controls {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 12px;
   padding-left: 36px;
   padding-right: 24px;

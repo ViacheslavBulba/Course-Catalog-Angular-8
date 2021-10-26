@@ -8,7 +8,7 @@ import { AuthorizationService } from './login/services/authorization.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnChanges {
-  title = 'Video Courses';
+  title = 'Course Catalog';
   isLoggedIn: boolean;
 
   public constructor(private titleService: Title, public authorizationService: AuthorizationService) {
