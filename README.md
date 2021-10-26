@@ -4,6 +4,10 @@
 <img width="1420" alt="Screen Shot 2021-10-25 at 8 27 52 PM" src="https://user-images.githubusercontent.com/29576017/138804703-651487b7-efba-46a6-81d8-c260a5a27d7d.png">
 <img width="1430" alt="Screen Shot 2021-10-25 at 8 28 09 PM" src="https://user-images.githubusercontent.com/29576017/138804719-34d7d5a9-dcf0-4d70-a6a4-595ba35043e9.png">
 
+# Project Goal
+
+In this project I was provided with a backend (returns list of courses) and the goal was to build frontend part using Angular 8.
+
 # How to run the project
 
 1. Download and install NodeJS with NPM from https://nodejs.org/en/
