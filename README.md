@@ -6,7 +6,7 @@
 
 # Project Goal
 
-In this project I was provided with a backend (returns list of courses) and the goal was to build frontend part using Angular 8.
+In this project I was provided with a backend (returns a list of courses) and the goal was to build the frontend using Angular 8.
 
 # How to run the project
 
